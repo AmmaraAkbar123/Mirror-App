@@ -1,21 +1,40 @@
 import 'package:flutter/material.dart';
-import 'package:mirror/components/custom_button.dart';
-import 'package:mirror/components/custom_textfield.dart';
+import 'package:mirror/authentication/screen/widgets/custom_button.dart';
 
-class NewPasswordScreen extends StatefulWidget {
-  const NewPasswordScreen({Key? key}) : super(key: key);
+class VerifyEmailOtp extends StatefulWidget {
+  const VerifyEmailOtp({Key? key}) : super(key: key);
 
   @override
-  State<NewPasswordScreen> createState() => _NewPasswordScreenState();
+  _VerifyEmailOtpState createState() => _VerifyEmailOtpState();
 }
 
-class _NewPasswordScreenState extends State<NewPasswordScreen> {
-  bool _isPasswordVisible = false;
+class _VerifyEmailOtpState extends State<VerifyEmailOtp> {
+  late List<TextEditingController> _controllers;
+  late List<FocusNode> _focusNodes;
 
-  void _togglePasswordVisibility() {
-    setState(() {
-      _isPasswordVisible = !_isPasswordVisible;
-    });
+  @override
+  void initState() {
+    super.initState();
+    _controllers = List.generate(4, (index) => TextEditingController());
+    _focusNodes = List.generate(4, (index) => FocusNode());
+    for (int i = 0; i < 3; i++) {
+      _controllers[i].addListener(() {
+        if (_controllers[i].text.isNotEmpty) {
+          _focusNodes[i + 1].requestFocus();
+        }
+      });
+    }
+  }
+
+  @override
+  void dispose() {
+    for (var controller in _controllers) {
+      controller.dispose();
+    }
+    for (var focusNode in _focusNodes) {
+      focusNode.dispose();
+    }
+    super.dispose();
   }
 
   @override
@@ -92,38 +111,58 @@ class _NewPasswordScreenState extends State<NewPasswordScreen> {
                             ),
                           ),
                           child: Center(
-                            child: Image.asset('assets/images/forgetpassword.png'),
+                            child: Image.asset(
+                              'assets/images/verifyotp.png',
+                              height: 200,
+                            ),
                           ),
                         ),
-                        const SizedBox(height: 40),
+                        const SizedBox(height: 20),
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             const Text(
-                              'Create new password',
+                              'Verify your email',
                               style: TextStyle(
                                 color: Colors.white,
                                 fontSize: 22,
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
-                            const SizedBox(height: 30),
-                            CustomTextField(
-                              height: 56,
-                              width: double.infinity,
-                              hintText: 'New Password',
-                              obscureText: !_isPasswordVisible,
-                              isPasswordField: true,
-                              onSuffixIconPressed: _togglePasswordVisibility,
+                            const SizedBox(height: 20),
+                            const Text(
+                              "Please enter the 4 digit code sent to your email.",
+                              style: TextStyle(
+                                fontSize: 16,
+                                color: Colors.white,
+                              ),
                             ),
                             const SizedBox(height: 20),
-                            CustomTextField(
-                              height: 56,
-                              width: double.infinity,
-                              hintText: 'Re-enter Password',
-                              obscureText: !_isPasswordVisible,
-                              isPasswordField: true,
-                              onSuffixIconPressed: _togglePasswordVisibility,
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              children: List.generate(4, (index) {
+                                return _buildOtpBox(index);
+                              }),
+                            ),
+                            const SizedBox(height: 20),
+                            const Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Text(
+                                  "If you didn’t receive a code",
+                                  style: TextStyle(
+                                    fontSize: 14,
+                                    color: Colors.white,
+                                  ),
+                                ),
+                                Text(
+                                  "Resend",
+                                  style: TextStyle(
+                                    fontSize: 14,
+                                    color: Colors.white,
+                                  ),
+                                ),
+                              ],
                             ),
                           ],
                         ),
@@ -138,7 +177,7 @@ class _NewPasswordScreenState extends State<NewPasswordScreen> {
                               text: 'Reset Password',
                               width: double.infinity,
                               onPressed: () {
-                                Navigator.pushNamed(context, '/login');
+                                Navigator.pushNamed(context, '/newpassword');
                               },
                             ),
                           ),
@@ -151,6 +190,43 @@ class _NewPasswordScreenState extends State<NewPasswordScreen> {
             ),
           );
         },
+      ),
+    );
+  }
+
+  Widget _buildOtpBox(int index) {
+    return Container(
+      width: 60,
+      height: 60,
+      decoration: BoxDecoration(
+        color: _controllers[index].text.isNotEmpty
+            ? Colors.white
+            : Colors.white.withOpacity(0.5),
+        borderRadius: BorderRadius.circular(12),
+      ),
+      alignment: Alignment.center,
+      child: TextFormField(
+        controller: _controllers[index],
+        focusNode: _focusNodes[index],
+        textAlign: TextAlign.center,
+        style: TextStyle(
+          color: _controllers[index].text.isNotEmpty
+              ? const Color(0xFF0885F8)
+              : Colors.white,
+          fontSize: 24,
+        ),
+        keyboardType: TextInputType.number,
+        maxLength: 1,
+        onChanged: (value) {
+          if (value.isNotEmpty && index < _focusNodes.length - 1) {
+            _focusNodes[index + 1].requestFocus();
+          }
+          setState(() {});
+        },
+        decoration: const InputDecoration(
+          counterText: "",
+          border: InputBorder.none,
+        ),
       ),
     );
   }

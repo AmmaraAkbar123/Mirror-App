@@ -1,41 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:mirror/components/custom_button.dart';
+import 'package:mirror/authentication/screen/widgets/custom_button.dart';
+import 'package:mirror/authentication/screen/widgets/custom_textfield.dart';
 
-class VerifyEmailOtp extends StatefulWidget {
-  const VerifyEmailOtp({Key? key}) : super(key: key);
-
-  @override
-  _VerifyEmailOtpState createState() => _VerifyEmailOtpState();
-}
-
-class _VerifyEmailOtpState extends State<VerifyEmailOtp> {
-  late List<TextEditingController> _controllers;
-  late List<FocusNode> _focusNodes;
-
-  @override
-  void initState() {
-    super.initState();
-    _controllers = List.generate(4, (index) => TextEditingController());
-    _focusNodes = List.generate(4, (index) => FocusNode());
-    for (int i = 0; i < 3; i++) {
-      _controllers[i].addListener(() {
-        if (_controllers[i].text.isNotEmpty) {
-          _focusNodes[i + 1].requestFocus();
-        }
-      });
-    }
-  }
-
-  @override
-  void dispose() {
-    for (var controller in _controllers) {
-      controller.dispose();
-    }
-    for (var focusNode in _focusNodes) {
-      focusNode.dispose();
-    }
-    super.dispose();
-  }
+class ForgetPasswordScreen extends StatelessWidget {
+  const ForgetPasswordScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -111,58 +79,34 @@ class _VerifyEmailOtpState extends State<VerifyEmailOtp> {
                             ),
                           ),
                           child: Center(
-                            child: Image.asset(
-                              'assets/images/verifyotp.png',
-                              height: 200,
-                            ),
+                            child: Image.asset('assets/images/forgetpassword.png'),
                           ),
                         ),
                         const SizedBox(height: 20),
-                        Column(
+                        const Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            const Text(
-                              'Verify your email',
+                            Text(
+                              'Forgot Password',
                               style: TextStyle(
                                 color: Colors.white,
                                 fontSize: 22,
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
-                            const SizedBox(height: 20),
-                            const Text(
-                              "Please enter the 4 digit code sent to your email.",
+                            SizedBox(height: 20),
+                            Text(
+                              "Enter the email address associated with this account",
                               style: TextStyle(
                                 fontSize: 16,
                                 color: Colors.white,
                               ),
                             ),
-                            const SizedBox(height: 20),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                              children: List.generate(4, (index) {
-                                return _buildOtpBox(index);
-                              }),
-                            ),
-                            const SizedBox(height: 20),
-                            const Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Text(
-                                  "If you didn’t receive a code",
-                                  style: TextStyle(
-                                    fontSize: 14,
-                                    color: Colors.white,
-                                  ),
-                                ),
-                                Text(
-                                  "Resend",
-                                  style: TextStyle(
-                                    fontSize: 14,
-                                    color: Colors.white,
-                                  ),
-                                ),
-                              ],
+                            SizedBox(height: 20),
+                            CustomTextField(
+                              hintText: "Email",
+                              width: double.infinity,
+                              height: 60,
                             ),
                           ],
                         ),
@@ -177,7 +121,7 @@ class _VerifyEmailOtpState extends State<VerifyEmailOtp> {
                               text: 'Reset Password',
                               width: double.infinity,
                               onPressed: () {
-                                Navigator.pushNamed(context, '/newpassword');
+                                Navigator.pushNamed(context, '/verifyemailotp');
                               },
                             ),
                           ),
@@ -190,43 +134,6 @@ class _VerifyEmailOtpState extends State<VerifyEmailOtp> {
             ),
           );
         },
-      ),
-    );
-  }
-
-  Widget _buildOtpBox(int index) {
-    return Container(
-      width: 60,
-      height: 60,
-      decoration: BoxDecoration(
-        color: _controllers[index].text.isNotEmpty
-            ? Colors.white
-            : Colors.white.withOpacity(0.5),
-        borderRadius: BorderRadius.circular(12),
-      ),
-      alignment: Alignment.center,
-      child: TextFormField(
-        controller: _controllers[index],
-        focusNode: _focusNodes[index],
-        textAlign: TextAlign.center,
-        style: TextStyle(
-          color: _controllers[index].text.isNotEmpty
-              ? const Color(0xFF0885F8)
-              : Colors.white,
-          fontSize: 24,
-        ),
-        keyboardType: TextInputType.number,
-        maxLength: 1,
-        onChanged: (value) {
-          if (value.isNotEmpty && index < _focusNodes.length - 1) {
-            _focusNodes[index + 1].requestFocus();
-          }
-          setState(() {});
-        },
-        decoration: const InputDecoration(
-          counterText: "",
-          border: InputBorder.none,
-        ),
       ),
     );
   }

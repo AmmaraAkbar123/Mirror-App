@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:mirror/components/custom_textfield.dart';
-import 'package:mirror/components/custom_button.dart';
-import 'package:mirror/components/custom_social_button.dart';
+import 'package:mirror/authentication/screen/widgets/custom_textfield.dart';
+import 'package:mirror/authentication/screen/widgets/custom_button.dart';
+import 'package:mirror/authentication/screen/widgets/custom_social_button.dart';
 
 class SignupScreen extends StatefulWidget {
   const SignupScreen({super.key});

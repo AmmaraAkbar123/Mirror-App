@@ -9,12 +9,12 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 200,
+      height: 94,
       decoration: BoxDecoration(
-        color: Color.fromARGB(0xA1, 0x08, 0x88, 0xFD),
+        color: Color(0x9F0888FD).withOpacity(0.63),
         borderRadius: const BorderRadius.only(
-          bottomLeft: Radius.circular(20),
-          bottomRight: Radius.circular(20),
+          bottomLeft: Radius.circular(16),
+          bottomRight: Radius.circular(16),
         ),
       ),
       child: SafeArea(
@@ -29,8 +29,8 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                   title,
                   style: TextStyle(
                     color: Colors.white,
-                    fontSize: 24,
-                    fontWeight: FontWeight.bold,
+                    fontSize: 16,
+                    fontWeight: FontWeight.w700,
                   ),
                   textAlign: TextAlign.center,
                 ),

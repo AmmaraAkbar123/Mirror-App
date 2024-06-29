@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:mirror/forget_pasword_screen.dart';
-import 'package:mirror/home_screen.dart';
-import 'package:mirror/new_password_screen.dart';
-import 'package:mirror/very_email_otp_screen.dart';
-import 'splash_screen.dart';
-import 'login_screen.dart';
-import 'signup_screen.dart';
+import 'package:mirror/authentication/screen/forget_pasword_screen.dart';
+import 'package:mirror/view/screen/contest_screen.dart';
+import 'package:mirror/view/screen/home_screen.dart';
+import 'package:mirror/authentication/screen/new_password_screen.dart';
+import 'package:mirror/authentication/screen/very_email_otp_screen.dart';
+import 'package:mirror/view/screen/navigation_screen.dart';
+import 'package:mirror/view/screen/profile_screen.dart';
+import 'package:mirror/view/screen/statistics_screen.dart';
+import 'view/screen/splash_screen.dart';
+import 'authentication/screen/login_screen.dart';
+import 'authentication/screen/signup_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -30,6 +34,11 @@ class MyApp extends StatelessWidget {
         '/verifyemailotp': (context) => const VerifyEmailOtp(),
         '/newpassword': (context) => const NewPasswordScreen(),
         '/home': (context) => const HomeScreen(),
+        '/navigationbar': (context) => const NavigationScreen(),
+        '/contest': (context) => const ContestScreen(),
+        '/profile': (context) => const ProfileScreen(),
+        '/statistics': (context) => const StatisticsScreen(),
+
       },
       debugShowCheckedModeBanner: false,
     );

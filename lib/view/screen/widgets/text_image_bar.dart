@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mirror/components/custom_textfield.dart';
+import 'package:mirror/authentication/screen/widgets/custom_textfield.dart';
 
 class TextandImageBar extends StatelessWidget {
   final String title;

@@ -1,9 +1,22 @@
 import 'package:flutter/material.dart';
-import 'package:mirror/components/custom_button.dart';
-import 'package:mirror/components/custom_textfield.dart';
+import 'package:mirror/authentication/screen/widgets/custom_button.dart';
+import 'package:mirror/authentication/screen/widgets/custom_textfield.dart';
 
-class ForgetPasswordScreen extends StatelessWidget {
-  const ForgetPasswordScreen({Key? key}) : super(key: key);
+class NewPasswordScreen extends StatefulWidget {
+  const NewPasswordScreen({Key? key}) : super(key: key);
+
+  @override
+  State<NewPasswordScreen> createState() => _NewPasswordScreenState();
+}
+
+class _NewPasswordScreenState extends State<NewPasswordScreen> {
+  bool _isPasswordVisible = false;
+
+  void _togglePasswordVisibility() {
+    setState(() {
+      _isPasswordVisible = !_isPasswordVisible;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -82,31 +95,35 @@ class ForgetPasswordScreen extends StatelessWidget {
                             child: Image.asset('assets/images/forgetpassword.png'),
                           ),
                         ),
-                        const SizedBox(height: 20),
-                        const Column(
+                        const SizedBox(height: 40),
+                        Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text(
-                              'Forgot Password',
+                            const Text(
+                              'Create new password',
                               style: TextStyle(
                                 color: Colors.white,
                                 fontSize: 22,
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
-                            SizedBox(height: 20),
-                            Text(
-                              "Enter the email address associated with this account",
-                              style: TextStyle(
-                                fontSize: 16,
-                                color: Colors.white,
-                              ),
-                            ),
-                            SizedBox(height: 20),
+                            const SizedBox(height: 30),
                             CustomTextField(
-                              hintText: "Email",
+                              height: 56,
                               width: double.infinity,
-                              height: 60,
+                              hintText: 'New Password',
+                              obscureText: !_isPasswordVisible,
+                              isPasswordField: true,
+                              onSuffixIconPressed: _togglePasswordVisibility,
+                            ),
+                            const SizedBox(height: 20),
+                            CustomTextField(
+                              height: 56,
+                              width: double.infinity,
+                              hintText: 'Re-enter Password',
+                              obscureText: !_isPasswordVisible,
+                              isPasswordField: true,
+                              onSuffixIconPressed: _togglePasswordVisibility,
                             ),
                           ],
                         ),
@@ -121,7 +138,7 @@ class ForgetPasswordScreen extends StatelessWidget {
                               text: 'Reset Password',
                               width: double.infinity,
                               onPressed: () {
-                                Navigator.pushNamed(context, '/verifyemailotp');
+                                Navigator.pushNamed(context, '/login');
                               },
                             ),
                           ),
