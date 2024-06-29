@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mirror/components/custom_textfield.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -26,9 +27,9 @@ class _LoginScreenState extends State<LoginScreen> {
           Center(
             child: SingleChildScrollView(
               child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                padding: const EdgeInsets.symmetric(horizontal: 32.0),
                 child: Container(
-                  padding: const EdgeInsets.all(8.0),
+                  padding: const EdgeInsets.all(16.0),
                   decoration: BoxDecoration(
                     color: const Color.fromARGB(0, 0, 0, 0).withOpacity(0.37),
                     borderRadius: const BorderRadius.all(
@@ -36,10 +37,10 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                   ),
                   child: Column(
-                    mainAxisSize: MainAxisSize.min,
+                    //mainAxisSize: MainAxisSize.min,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                    const SizedBox(height: 10),
+                      const SizedBox(height: 10),
                       const Text(
                         'Log In',
                         style: TextStyle(
@@ -71,18 +72,35 @@ class _LoginScreenState extends State<LoginScreen> {
                         style: TextStyle(color: Colors.white),
                       ),
                       const SizedBox(height: 6),
-                      _buildTextField('Enter your email'),
+                      CustomTextField(hintText: 'Enter your email'),
                       const SizedBox(height: 10),
                       const Text(
                         'Password',
                         style: TextStyle(color: Colors.white),
                       ),
                       const SizedBox(height: 6),
-                      _buildTextField('Enter your password',
+                      CustomTextField(
+                          hintText: 'Enter your password',
                           obscureText: !_isPasswordVisible,
                           isPasswordField: true,
                           onSuffixIconPressed: _togglePasswordVisibility),
-                      const SizedBox(height: 30),
+                      //const SizedBox(height: 5),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          TextButton(
+                            onPressed: () {
+                              Navigator.pushNamed(context, '/forgetpassword');
+                            },
+                            child: Text(
+                              'Forget Password?',
+                              style:
+                                  TextStyle(color: Colors.white, fontSize: 12),
+                            ),
+                          ),
+                        ],
+                      ),
+                      //const SizedBox(height: 20),
                       _buildSignInButton(),
                       Center(
                         child: TextButton(
@@ -102,42 +120,6 @@ class _LoginScreenState extends State<LoginScreen> {
             ),
           ),
         ],
-      ),
-    );
-  }
-
-  Widget _buildTextField(String hintText,
-      {bool obscureText = false,
-      bool isPasswordField = false,
-      VoidCallback? onSuffixIconPressed}) {
-    return Container(
-      width: 328,
-      height: 46,
-      decoration: BoxDecoration(
-        borderRadius: const BorderRadius.all(
-          Radius.circular(37),
-        ),
-        border: Border.all(width: 1, color: Colors.white),
-      ),
-      child: TextField(
-        obscureText: obscureText,
-        decoration: InputDecoration(
-          hintText: hintText,
-          hintStyle: const TextStyle(color: Colors.white, fontSize: 14),
-          filled: true,
-          fillColor: Colors.transparent,
-          border: InputBorder.none,
-          suffixIcon: isPasswordField
-              ? IconButton(
-                  icon: Icon(
-                    obscureText ? Icons.visibility_off : Icons.visibility,
-                    color: Colors.white,
-                  ),
-                  onPressed: onSuffixIconPressed,
-                )
-              : null,
-        ),
-        style: const TextStyle(color: Colors.white),
       ),
     );
   }

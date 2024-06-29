@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:mirror/forget_pasword_screen.dart';
+import 'package:mirror/home_screen.dart';
+import 'package:mirror/new_password_screen.dart';
+import 'package:mirror/very_email_otp_screen.dart';
 import 'splash_screen.dart';
 import 'login_screen.dart';
 import 'signup_screen.dart';
@@ -22,6 +26,10 @@ class MyApp extends StatelessWidget {
       routes: {
         '/login': (context) => const LoginScreen(),
         '/signup': (context) => const SignupScreen(),
+        '/forgetpassword': (context) => const ForgetPasswordScreen(),
+        '/verifyemailotp': (context) => const VerifyEmailOtp(),
+        '/newpassword': (context) => const NewPasswordScreen(),
+        '/home': (context) => const HomeScreen(),
       },
       debugShowCheckedModeBanner: false,
     );

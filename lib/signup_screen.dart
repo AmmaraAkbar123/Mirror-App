@@ -119,7 +119,8 @@ class _SignupScreenState extends State<SignupScreen> {
                       _buildTextField('Confirm Password',
                           obscureText: !_isConfirmPasswordVisible,
                           isPasswordField: true,
-                          onSuffixIconPressed: _toggleConfirmPasswordVisibility),
+                          onSuffixIconPressed:
+                              _toggleConfirmPasswordVisibility),
                       const SizedBox(height: 30),
                       _buildSignUpButton(),
                       Center(
