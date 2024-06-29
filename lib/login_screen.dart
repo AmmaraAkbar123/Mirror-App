@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mirror/components/custom_textfield.dart';
+import 'package:mirror/components/custom_button.dart';
+import 'package:mirror/components/custom_social_button.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -23,7 +25,7 @@ class _LoginScreenState extends State<LoginScreen> {
       body: Stack(
         fit: StackFit.expand,
         children: [
-          Image.asset('assets/images/image.jpeg', fit: BoxFit.cover),
+          Image.asset('assets/images/image.jpeg', fit: BoxFit.cover,),
           Center(
             child: SingleChildScrollView(
               child: Padding(
@@ -37,7 +39,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                   ),
                   child: Column(
-                    //mainAxisSize: MainAxisSize.min,
+                    mainAxisSize: MainAxisSize.min,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       const SizedBox(height: 10),
@@ -50,20 +52,26 @@ class _LoginScreenState extends State<LoginScreen> {
                         ),
                       ),
                       const SizedBox(height: 20),
-                      _buildSocialLoginButton(
-                        'Login with Google',
-                        'assets/images/google-icon.png',
+                      CustomSocialButton(
+                        text: 'Login with Google',
+                        imagePath: 'assets/images/google-icon.png',
+                        onPressed: () {
+                          // Handle Google login
+                        },
                       ),
                       const SizedBox(height: 10),
-                      _buildSocialLoginButton(
-                        'Login with Apple',
-                        'assets/images/apple-icon.png',
+                      CustomSocialButton(
+                        text: 'Login with Apple',
+                        imagePath: 'assets/images/apple-icon.png',
+                        onPressed: () {
+                          // Handle Apple login
+                        },
                       ),
                       const SizedBox(height: 20),
                       const Center(
                         child: Text(
-                          '----------------------------- OR -----------------------------',
-                          style: TextStyle(color: Colors.white),
+                          '--------------------- OR ---------------------',
+                          style: TextStyle(color: Colors.white, fontSize: 10),
                         ),
                       ),
                       const SizedBox(height: 20),
@@ -80,11 +88,11 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                       const SizedBox(height: 6),
                       CustomTextField(
-                          hintText: 'Enter your password',
-                          obscureText: !_isPasswordVisible,
-                          isPasswordField: true,
-                          onSuffixIconPressed: _togglePasswordVisibility),
-                      //const SizedBox(height: 5),
+                        hintText: 'Enter your password',
+                        obscureText: !_isPasswordVisible,
+                        isPasswordField: true,
+                        onSuffixIconPressed: _togglePasswordVisibility,
+                      ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: [
@@ -92,16 +100,19 @@ class _LoginScreenState extends State<LoginScreen> {
                             onPressed: () {
                               Navigator.pushNamed(context, '/forgetpassword');
                             },
-                            child: Text(
+                            child: const Text(
                               'Forget Password?',
-                              style:
-                                  TextStyle(color: Colors.white, fontSize: 12),
+                              style: TextStyle(color: Colors.white, fontSize: 12),
                             ),
                           ),
                         ],
                       ),
-                      //const SizedBox(height: 20),
-                      _buildSignInButton(),
+                      CustomButton(
+                        text: 'Login',
+                        onPressed: () {
+                           Navigator.pushNamed(context, '/home');
+                        },
+                      ),
                       Center(
                         child: TextButton(
                           onPressed: () {
@@ -120,54 +131,6 @@ class _LoginScreenState extends State<LoginScreen> {
             ),
           ),
         ],
-      ),
-    );
-  }
-
-  Widget _buildSocialLoginButton(String text, String imagePath) {
-    return Container(
-      width: 328,
-      height: 56,
-      decoration: BoxDecoration(
-        color: Colors.white.withOpacity(0.53),
-        borderRadius: const BorderRadius.all(
-          Radius.circular(30),
-        ),
-        border: Border.all(width: 1, color: Colors.white),
-      ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Image.asset(imagePath, width: 24, height: 24),
-          const SizedBox(width: 10),
-          Text(
-            text,
-            style: const TextStyle(color: Colors.black),
-          ),
-        ],
-      ),
-    );
-  }
-
-  Widget _buildSignInButton() {
-    return Container(
-      width: 328,
-      height: 56,
-      child: ElevatedButton(
-        style: ElevatedButton.styleFrom(
-          backgroundColor: Colors.white,
-          shape: const RoundedRectangleBorder(
-            borderRadius: BorderRadius.all(
-              Radius.circular(30),
-            ),
-          ),
-          side: const BorderSide(color: Colors.white),
-        ),
-        onPressed: () {},
-        child: const Text(
-          'Login',
-          style: TextStyle(color: Colors.black),
-        ),
       ),
     );
   }

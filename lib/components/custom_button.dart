@@ -7,17 +7,17 @@ class CustomButton extends StatelessWidget {
   final String text;
 
   const CustomButton({
-    Key? key,
+    super.key,
     this.width,
     this.height,
     required this.onPressed,
     required this.text,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: width ?? 328, // Default width is 328 if not provided
+      width: width ?? double.infinity, // Default width is 328 if not provided
       height: height ?? 56, // Default height is 56 if not provided
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(

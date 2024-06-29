@@ -21,114 +21,136 @@ class _NewPasswordScreenState extends State<NewPasswordScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SingleChildScrollView(
-        child: Container(
-          height: MediaQuery.of(context).size.height,
-          decoration: BoxDecoration(
-            image: DecorationImage(
-              image: AssetImage('assets/images/image.jpeg'),
-              fit: BoxFit.cover,
-            ),
-          ),
-          child: Padding(
-            padding: const EdgeInsets.all(20.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                SizedBox(height: 40),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Container(
-                      height: 25,
-                      width: 25,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(100),
-                        color: Colors.white,
-                      ),
-                      child: IconButton(
-                        padding: EdgeInsets.zero,
-                        icon: Icon(
-                          Icons.arrow_back_ios_new,
-                          color: Colors.black,
-                          size: 12,
+      body: LayoutBuilder(
+        builder: (context, constraints) {
+          return SingleChildScrollView(
+            child: ConstrainedBox(
+              constraints: BoxConstraints(
+                minHeight: constraints.maxHeight,
+              ),
+              child: IntrinsicHeight(
+                child: Container(
+                  decoration: const BoxDecoration(
+                    image: DecorationImage(
+                      image: AssetImage('assets/images/image.jpeg'),
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.all(20.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        const SizedBox(height: 40),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Container(
+                              height: 25,
+                              width: 25,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(100),
+                                color: Colors.white,
+                              ),
+                              child: IconButton(
+                                padding: EdgeInsets.zero,
+                                icon: const Icon(
+                                  Icons.arrow_back_ios_new,
+                                  color: Colors.black,
+                                  size: 12,
+                                ),
+                                onPressed: () {
+                                  Navigator.pop(context);
+                                },
+                              ),
+                            ),
+                            const Expanded(
+                              child: Center(
+                                child: Text(
+                                  'Forget Password',
+                                  style: TextStyle(color: Colors.white),
+                                  textAlign: TextAlign.center,
+                                ),
+                              ),
+                            ),
+                            const SizedBox(width: 25), // Placeholder to balance the Row
+                          ],
                         ),
-                        onPressed: () {
-                          Navigator.pop(context);
-                        },
-                      ),
-                    ),
-                    Text(
-                      'Forget Password',
-                      style: TextStyle(color: Colors.white),
-                    ),
-                    SizedBox(width: 25),
-                  ],
-                ),
-                SizedBox(height: 20),
-                Container(
-                  width: 253,
-                  height: 253,
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    gradient: LinearGradient(
-                      colors: [
-                        Color(0xFF023462),
-                        Color(0xFF0888FD),
+                        const SizedBox(height: 20),
+                        Container(
+                          width: 253,
+                          height: 253,
+                          decoration: const BoxDecoration(
+                            shape: BoxShape.circle,
+                            gradient: LinearGradient(
+                              colors: [
+                                Color(0xFF023462),
+                                Color(0xFF0888FD),
+                              ],
+                              begin: Alignment.topLeft,
+                              end: Alignment.bottomRight,
+                            ),
+                          ),
+                          child: Center(
+                            child: Image.asset('assets/images/forgetpassword.png'),
+                          ),
+                        ),
+                        const SizedBox(height: 40),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            const Text(
+                              'Create new password',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 22,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            const SizedBox(height: 30),
+                            CustomTextField(
+                              height: 56,
+                              width: double.infinity,
+                              hintText: 'New Password',
+                              obscureText: !_isPasswordVisible,
+                              isPasswordField: true,
+                              onSuffixIconPressed: _togglePasswordVisibility,
+                            ),
+                            const SizedBox(height: 20),
+                            CustomTextField(
+                              height: 56,
+                              width: double.infinity,
+                              hintText: 'Re-enter Password',
+                              obscureText: !_isPasswordVisible,
+                              isPasswordField: true,
+                              onSuffixIconPressed: _togglePasswordVisibility,
+                            ),
+                          ],
+                        ),
+                        const Spacer(),
+                        const SizedBox(height: 20),
+
+                        Align(
+                          alignment: Alignment.bottomCenter,
+                          child: Padding(
+                            padding: const EdgeInsets.only(bottom: 45.0),
+                            child: CustomButton(
+                              text: 'Reset Password',
+                              width: double.infinity,
+                              onPressed: () {
+                                Navigator.pushNamed(context, '/login');
+                              },
+                            ),
+                          ),
+                        ),
                       ],
-                      begin: Alignment.topLeft,
-                      end: Alignment.bottomRight,
                     ),
                   ),
-                  child: Center(
-                    child: Image.asset('assets/images/forgetpassword.png'),
-                  ),
                 ),
-                SizedBox(height: 40),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      'Create new password',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 22,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    SizedBox(height: 30),
-                    CustomTextField(
-                        height: 56,
-                        width: double.infinity,
-                        hintText: 'New Password',
-                        obscureText: !_isPasswordVisible,
-                        isPasswordField: true,
-                        onSuffixIconPressed: _togglePasswordVisibility),
-                    SizedBox(height: 20),
-                    CustomTextField(
-                        height: 56,
-                        width: double.infinity,
-                        hintText: 'Re-enter Password',
-                        obscureText: !_isPasswordVisible,
-                        isPasswordField: true,
-                        onSuffixIconPressed: _togglePasswordVisibility),
-                  ],
-                ),
-                Spacer(),
-                Padding(
-                  padding: const EdgeInsets.only(bottom: 45.0),
-                  child: CustomButton(
-                    text: 'Reset Password',
-                    width: double.infinity,
-                    onPressed: () {
-                      Navigator.pushNamed(context, '/home');
-                    },
-                  ),
-                ),
-              ],
+              ),
             ),
-          ),
-        ),
+          );
+        },
       ),
     );
   }

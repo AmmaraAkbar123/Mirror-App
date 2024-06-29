@@ -11,12 +11,12 @@ class HomeScreen extends StatelessWidget {
         fit: StackFit.expand,
         children: [
           Image.asset('assets/images/image.jpeg', fit: BoxFit.cover),
-          TextandImageBar(
+          const TextandImageBar(
             title: 'Home',
             image: 'assets/images/boy.png',
             // icon: Icons.arrow_back_ios_new,
           ),
-          Positioned(
+          const Positioned(
             top: 190,
             left: 20,
             right: 20,

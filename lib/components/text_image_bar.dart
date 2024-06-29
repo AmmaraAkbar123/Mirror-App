@@ -7,11 +7,11 @@ class TextandImageBar extends StatelessWidget {
   final IconData? icon;
 
   const TextandImageBar({
-    Key? key,
+    super.key,
     required this.title,
     required this.image,
     this.icon,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +22,7 @@ class TextandImageBar extends StatelessWidget {
       child: Container(
         height: 180,
         decoration: BoxDecoration(
-          color: Color.fromARGB(0xA1, 0x08, 0x88, 0xFD).withOpacity(0.4),
+          color: const Color.fromARGB(0xA1, 0x08, 0x88, 0xFD).withOpacity(0.4),
           borderRadius: const BorderRadius.only(
             bottomLeft: Radius.circular(25),
             bottomRight: Radius.circular(25),
@@ -44,7 +44,7 @@ class TextandImageBar extends StatelessWidget {
                         border: Border.all(color: Colors.white)),
                     child: IconButton(
                       padding: EdgeInsets.zero,
-                      icon: Icon(
+                      icon: const Icon(
                         Icons.arrow_back_ios_new,
                         color: Colors.white,
                         size: 12,
@@ -59,7 +59,7 @@ class TextandImageBar extends StatelessWidget {
                   child: Center(
                     child: Text(
                       title,
-                      style: TextStyle(
+                      style: const TextStyle(
                         color: Colors.white,
                         fontSize: 24,
                         fontWeight: FontWeight.bold,
@@ -78,8 +78,8 @@ class TextandImageBar extends StatelessWidget {
                 ),
               ],
             ),
-            SizedBox(height: 20),
-            CustomSearchField(
+            const SizedBox(height: 20),
+            const CustomSearchField(
               width: double.infinity,
               icon: Icons.search,
               hinttext: "Search",

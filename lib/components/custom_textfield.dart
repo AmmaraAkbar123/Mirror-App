@@ -8,7 +8,7 @@ class CustomTextField extends StatelessWidget {
   final double? width;
   final double? height;
 
-  const CustomTextField({
+  const CustomTextField({super.key, 
     required this.hintText,
     this.obscureText = false,
     this.isPasswordField = false,
@@ -20,9 +20,8 @@ class CustomTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: width ?? 328, // Default width is 328 if not provided
-      height: height ?? 46, // Default height is 46 if not provided
-
+      width: width ?? double.infinity,
+      height: height ?? 46,
       decoration: BoxDecoration(
         borderRadius: const BorderRadius.all(
           Radius.circular(37),
