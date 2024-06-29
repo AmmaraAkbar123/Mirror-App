@@ -68,31 +68,31 @@ class _SignupScreenState extends State<SignupScreen> {
                     if (!_showSignupFields) ...[
                       CustomSocialButton(
                         text: 'Continue with Google',
-                        imagePath: 'assets/images/google-icon.png',
+                        imagePath: 'assets/icons/google-icon.png',
                         onPressed: _showFields,
                       ),
                       const SizedBox(height: 12),
                       CustomSocialButton(
                         text: 'Continue with Apple',
-                        imagePath: 'assets/images/apple-icon.png',
+                        imagePath: 'assets/icons/apple-icon.png',
                         onPressed: _showFields,
                       ),
                       const SizedBox(height: 12),
                       CustomSocialButton(
                         text: 'Continue with Email',
-                        imagePath: 'assets/images/email-icon.png',
+                        imagePath: 'assets/icons/email-icon.png',
                         onPressed: _showFields,
                       ),
                       const SizedBox(height: 12),
                       CustomSocialButton(
                         text: 'Continue with Twitter',
-                        imagePath: 'assets/images/x-icon.png',
+                        imagePath: 'assets/icons/x-icon.png',
                         onPressed: _showFields,
                       ),
                       const SizedBox(height: 12),
                       CustomSocialButton(
                         text: 'Continue with Facebook',
-                        imagePath: 'assets/images/fb-icon.png',
+                        imagePath: 'assets/icons/fb-icon.png',
                         onPressed: _showFields,
                       ),
                       const SizedBox(height: 12),

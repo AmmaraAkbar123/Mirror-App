@@ -54,7 +54,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       const SizedBox(height: 20),
                       CustomSocialButton(
                         text: 'Login with Google',
-                        imagePath: 'assets/images/google-icon.png',
+                        imagePath: 'assets/icons/google-icon.png',
                         onPressed: () {
                           // Handle Google login
                         },
@@ -62,7 +62,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       const SizedBox(height: 10),
                       CustomSocialButton(
                         text: 'Login with Apple',
-                        imagePath: 'assets/images/apple-icon.png',
+                        imagePath: 'assets/icons/apple-icon.png',
                         onPressed: () {
                           // Handle Apple login
                         },
