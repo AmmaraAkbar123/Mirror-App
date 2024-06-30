@@ -22,7 +22,7 @@ class ContestScreen extends StatelessWidget {
             icon: Icons.arrow_back_ios_new,
           ),
           Positioned(
-            top: 160,
+            top: 190,
             left: 20,
             right: 20,
             bottom: 0,
