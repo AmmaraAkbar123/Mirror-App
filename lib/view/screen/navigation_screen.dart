@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:mirror/view/screen/event_des_screen.dart';
 import 'package:mirror/view/screen/profile_screen.dart';
-import 'package:mirror/view/screen/statistics_screen.dart';
 import 'package:mirror/view/screen/contest_screen.dart';
 import 'package:mirror/view/screen/home_screen.dart';
 
 class NavigationScreen extends StatefulWidget {
-  const NavigationScreen({super.key});
+  const NavigationScreen({Key? key}) : super(key: key);
 
   @override
   _NavigationScreenState createState() => _NavigationScreenState();
@@ -16,7 +16,7 @@ class _NavigationScreenState extends State<NavigationScreen> {
   final List<Widget> _screens = [
     const HomeScreen(),
     const ContestScreen(),
-    const StatisticsScreen(),
+    const EventDesScreen(),
     const ProfileScreen(),
   ];
 
@@ -33,11 +33,11 @@ class _NavigationScreenState extends State<NavigationScreen> {
       bottomNavigationBar: Container(
         decoration: BoxDecoration(
           color: Colors.white.withOpacity(0.6),
-          borderRadius: const BorderRadius.only(
-            topLeft: Radius.circular(8.0),
-            topRight: Radius.circular(8.0),
+          borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(30.0),
+            topRight: Radius.circular(30.0),
           ),
-          boxShadow: const [
+          boxShadow: [
             BoxShadow(
               color: Colors.black26,
               blurRadius: 10,
@@ -46,12 +46,13 @@ class _NavigationScreenState extends State<NavigationScreen> {
           ],
         ),
         child: ClipRRect(
-          borderRadius: const BorderRadius.only(
-            topLeft: Radius.circular(8.0),
-            topRight: Radius.circular(8.0),
+          borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(30.0),
+            topRight: Radius.circular(30.0),
           ),
           child: BottomNavigationBar(
-            backgroundColor: Colors.transparent,
+            backgroundColor:
+                Colors.transparent, // Ensure transparent background
             items: const [
               BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
               BottomNavigationBarItem(

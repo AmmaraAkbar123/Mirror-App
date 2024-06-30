@@ -39,8 +39,8 @@ class ContestScreen extends StatelessWidget {
                           ? 2
                           : 3, // Responsive columns
                       childAspectRatio: 0.75, // Aspect ratio of each item
-                      crossAxisSpacing: 10, // Horizontal space between items
-                      mainAxisSpacing: 0, // Vertical space between items
+                      crossAxisSpacing: 15, // Horizontal space between items
+                      mainAxisSpacing: 10, // Vertical space between items
                     ),
                     itemCount:
                         events.length, // Number of event cards to display

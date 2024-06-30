@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mirror/authentication/screen/widgets/custom_button.dart';
+import 'package:mirror/view/screen/widgets/custom_title_appbar.dart';
 
 class VerifyEmailOtp extends StatefulWidget {
   const VerifyEmailOtp({Key? key}) : super(key: key);
@@ -61,39 +62,9 @@ class _VerifyEmailOtpState extends State<VerifyEmailOtp> {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         const SizedBox(height: 40),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Container(
-                              height: 25,
-                              width: 25,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(100),
-                                color: Colors.white,
-                              ),
-                              child: IconButton(
-                                padding: EdgeInsets.zero,
-                                icon: const Icon(
-                                  Icons.arrow_back_ios_new,
-                                  color: Colors.black,
-                                  size: 12,
-                                ),
-                                onPressed: () {
-                                  Navigator.pop(context);
-                                },
-                              ),
-                            ),
-                            const Expanded(
-                              child: Center(
-                                child: Text(
-                                  'Forget Password',
-                                  style: TextStyle(color: Colors.white),
-                                  textAlign: TextAlign.center,
-                                ),
-                              ),
-                            ),
-                            const SizedBox(width: 25), // Placeholder to balance the Row
-                          ],
+                        customTitleAppbar(
+                          title: 'Forget Password',
+                          icon: Icons.arrow_back_ios_new,
                         ),
                         const SizedBox(height: 20),
                         Container(
@@ -168,7 +139,6 @@ class _VerifyEmailOtpState extends State<VerifyEmailOtp> {
                         ),
                         const Spacer(),
                         const SizedBox(height: 20),
-
                         Align(
                           alignment: Alignment.bottomCenter,
                           child: Padding(
