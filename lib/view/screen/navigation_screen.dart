@@ -32,7 +32,7 @@ class _NavigationScreenState extends State<NavigationScreen> {
       body: _screens[_currentIndex],
       bottomNavigationBar: Container(
         decoration: BoxDecoration(
-          color: Colors.white.withOpacity(0.65),
+          color: Colors.white.withOpacity(0.6),
           borderRadius: const BorderRadius.only(
             topLeft: Radius.circular(8.0),
             topRight: Radius.circular(8.0),
@@ -54,9 +54,12 @@ class _NavigationScreenState extends State<NavigationScreen> {
             backgroundColor: Colors.transparent,
             items: const [
               BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
-              BottomNavigationBarItem(icon: Icon(Icons.stars), label: 'Contest'),
-              BottomNavigationBarItem(icon: Icon(Icons.bar_chart), label: 'Statistics'),
-              BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Profile'),
+              BottomNavigationBarItem(
+                  icon: Icon(Icons.stars), label: 'Contest'),
+              BottomNavigationBarItem(
+                  icon: Icon(Icons.bar_chart), label: 'Statistics'),
+              BottomNavigationBarItem(
+                  icon: Icon(Icons.person), label: 'Profile'),
             ],
             currentIndex: _currentIndex,
             selectedItemColor: Colors.blue,
