@@ -7,6 +7,7 @@ import 'package:mirror/authentication/screen/very_email_otp_screen.dart';
 import 'package:mirror/view/screen/navigation_screen.dart';
 import 'package:mirror/view/screen/profile_screen.dart';
 import 'package:mirror/view/screen/statistics_screen.dart';
+import 'package:mirror/view/screen/upcoming_events_screen.dart';
 import 'view/screen/splash_screen.dart';
 import 'authentication/screen/login_screen.dart';
 import 'authentication/screen/signup_screen.dart';
@@ -38,7 +39,6 @@ class MyApp extends StatelessWidget {
         '/contest': (context) => const ContestScreen(),
         '/profile': (context) => const ProfileScreen(),
         '/statistics': (context) => const StatisticsScreen(),
-
       },
       debugShowCheckedModeBanner: false,
     );

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mirror/view/screen/event_des_screen.dart';
+import 'package:mirror/view/screen/upcoming_events_screen.dart';
 import 'package:mirror/view/screen/widgets/event_card.dart';
 import 'package:mirror/view/screen/widgets/feed_section.dart';
 import 'package:mirror/view/screen/widgets/section_header_text.dart';
@@ -35,7 +36,9 @@ class HomeScreen extends StatelessWidget {
                   const SizedBox(height: 10),
                   _buildHorizontalScrollSection([
                     GestureDetector(
-                      onTap: () => Navigator.of(context).push(MaterialPageRoute(builder: (context) => const EventDesScreen(),)),
+                      onTap: () => Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => const EventDesScreen(),
+                      )),
                       child: const EventCard(
                         imagePath: 'assets/images/diwali.jpeg',
                         eventName: 'Diwali',
@@ -85,8 +88,15 @@ class HomeScreen extends StatelessWidget {
                     ]),
                   ),
                   const SizedBox(height: 20),
-                  SectionHeader(
-                    title: "Upcoming Contests",
+                  GestureDetector(
+                    onTap: () => Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => UpcomingEventsScreen()),
+                    ),
+                    child: SectionHeader(
+                      title: "Upcoming Contests",
+                    ),
                   ),
                   const SizedBox(height: 10),
                   UpcomingContestCard(

@@ -8,7 +8,8 @@ class CustomTextField extends StatelessWidget {
   final double? width;
   final double? height;
 
-  const CustomTextField({super.key, 
+  const CustomTextField({
+    super.key,
     required this.hintText,
     this.obscureText = false,
     this.isPasswordField = false,

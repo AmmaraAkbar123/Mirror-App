@@ -37,7 +37,10 @@ class customTitleAppbar extends StatelessWidget {
           child: Center(
             child: Text(
               title,
-              style: TextStyle(color: Colors.white),
+              style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 17,
+                  fontWeight: FontWeight.w700),
               textAlign: TextAlign.center,
             ),
           ),
