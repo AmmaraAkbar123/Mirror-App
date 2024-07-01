@@ -69,7 +69,7 @@ class CustomGraph extends StatelessWidget {
                 );
               }
               return FlLine(
-                color: Colors.transparent, // No line for other values
+                color: Colors.transparent,
               );
             },
             horizontalInterval: 20,
@@ -83,13 +83,13 @@ class CustomGraph extends StatelessWidget {
                   barRods: [
                     BarChartRodData(
                       toY: entry.value['blueValue'],
-                      color: Colors.blue,
+                      color: Color(0xFF0888FD),
                       width: 14,
                       borderRadius: BorderRadius.zero,
                       backDrawRodData: BackgroundBarChartRodData(
                         show: true,
                         toY: entry.value['whiteValue'],
-                        color: Colors.grey[300]!,
+                        color: Color(0xFFC6E4FF),
                       ),
                     ),
                   ],

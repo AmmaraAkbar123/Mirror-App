@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_expandable_fab/flutter_expandable_fab.dart';
 import 'package:mirror/view/screen/widgets/content_box.dart';
 import 'package:mirror/view/screen/widgets/custom_fab.dart';
 import 'package:mirror/view/screen/widgets/custom_graph.dart';
@@ -64,15 +63,15 @@ class _EventDesScreenState extends State<EventDesScreen> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  customTitleAppbar(
+                  const customTitleAppbar(
                       title: "Event Des", icon: Icons.arrow_back_ios_new),
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
                   Container(
                     width: double.infinity,
                     height: 160,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(15),
-                      image: DecorationImage(
+                      image: const DecorationImage(
                         image: AssetImage("assets/images/upcoming.jpeg"),
                         fit: BoxFit.cover,
                       ),
@@ -84,11 +83,11 @@ class _EventDesScreenState extends State<EventDesScreen> {
                         child: Container(
                           width: 110,
                           height: 45,
-                          padding: EdgeInsets.all(10),
+                          padding: const EdgeInsets.all(10),
                           decoration: BoxDecoration(
                               color: Colors.white,
                               borderRadius: BorderRadius.circular(15)),
-                          child: Center(
+                          child: const Center(
                             child: Text(
                               "SignUp",
                               style: TextStyle(
@@ -102,8 +101,8 @@ class _EventDesScreenState extends State<EventDesScreen> {
                       ),
                     ),
                   ),
-                  SizedBox(height: 15),
-                  Row(
+                  const SizedBox(height: 15),
+                  const Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
@@ -125,30 +124,30 @@ class _EventDesScreenState extends State<EventDesScreen> {
                       )
                     ],
                   ),
-                  SizedBox(height: 5),
+                  const SizedBox(height: 5),
                   Container(
                     width: double.infinity,
-                    child: Divider(color: Colors.white),
+                    child: const Divider(color: Colors.white),
                   ),
-                  SizedBox(height: 5),
-                  Text(
+                  const SizedBox(height: 5),
+                  const Text(
                     "Content",
                     style: TextStyle(
                       color: Colors.white,
                       fontSize: 13,
                     ),
                   ),
-                  SizedBox(height: 5),
-                  ContentBox(),
-                  SizedBox(height: 10),
+                  const SizedBox(height: 5),
+                  const ContentBox(),
+                  const SizedBox(height: 10),
                   Container(
                     width: double.infinity,
-                    child: Divider(color: Colors.white),
+                    child: const Divider(color: Colors.white),
                   ),
                   Container(
                     height: 215,
                     width: double.infinity,
-                    padding: EdgeInsets.all(10),
+                    padding: const EdgeInsets.all(10),
                     decoration: BoxDecoration(
                         color:
                             const Color.fromARGB(0, 0, 0, 0).withOpacity(0.37),
@@ -163,7 +162,7 @@ class _EventDesScreenState extends State<EventDesScreen> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                              
-                              Text(
+                              const Text(
                                 'Participants',
                                 style: TextStyle(
                                     fontSize: 13,
@@ -187,10 +186,10 @@ class _EventDesScreenState extends State<EventDesScreen> {
                                                 backgroundImage:
                                                     AssetImage(images[index]),
                                               ),
-                                              SizedBox(width: 6),
+                                              const SizedBox(width: 6),
                                               Text(
                                                 names[index],
-                                                style: TextStyle(
+                                                style: const TextStyle(
                                                     fontSize: 10,
                                                     fontWeight: FontWeight.w300,
                                                     color: Colors.white),
@@ -212,7 +211,7 @@ class _EventDesScreenState extends State<EventDesScreen> {
                                 },
                                 child: Text(
                                   _isExpanded ? 'Show less' : 'Show more',
-                                  style: TextStyle(
+                                  style: const TextStyle(
                                       color: Colors.blue,
                                       fontWeight: FontWeight.bold,
                                       fontSize: 8),
@@ -221,7 +220,7 @@ class _EventDesScreenState extends State<EventDesScreen> {
                             ],
                           ),
                         ),
-                        VerticalDivider(color: Colors.white),
+                        const VerticalDivider(color: Colors.white),
                         Expanded(
                           flex: 2,
                           child: CustomGraph(data: graphData),
@@ -229,22 +228,24 @@ class _EventDesScreenState extends State<EventDesScreen> {
                       ],
                     ),
                   ),
-                  Divider(color: Colors.white),
-                  Text(
+                  const Divider(color: Colors.white),
+                  const Text(
                     "Shadows",
                     style: TextStyle(
                       color: Colors.white,
                       fontSize: 13,
                     ),
                   ),
+                  const SizedBox(height: 100),
                 ],
               ),
             ),
           ),
+          CustomFab(),
         ],
       ),
-      floatingActionButtonLocation: ExpandableFab.location,
-      floatingActionButton: CustomFab(),
+
+      
     );
   }
 }
