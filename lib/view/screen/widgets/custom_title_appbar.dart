@@ -2,11 +2,15 @@ import 'package:flutter/material.dart';
 
 class customTitleAppbar extends StatelessWidget {
   final String title;
-  final IconData icon;
+
+  final IconData? leftIcon;
+  final IconData? rightIcon;
+
   const customTitleAppbar({
     super.key,
     required this.title,
-    required this.icon,
+    this.leftIcon,
+    this.rightIcon,
   });
 
   @override
@@ -24,7 +28,7 @@ class customTitleAppbar extends StatelessWidget {
           child: IconButton(
             padding: EdgeInsets.zero,
             icon: Icon(
-              icon,
+              leftIcon,
               color: Colors.black,
               size: 12,
             ),

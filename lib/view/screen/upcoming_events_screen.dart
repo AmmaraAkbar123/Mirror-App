@@ -22,7 +22,7 @@ class UpcomingEventsScreen extends StatelessWidget {
                   children: [
                     customTitleAppbar(
                         title: "Upcoming Events",
-                        icon: Icons.arrow_back_ios_new),
+                        leftIcon: Icons.arrow_back_ios_new),
                     SizedBox(
                       height: 20,
                     ),

@@ -32,7 +32,7 @@ class ForgetPasswordScreen extends StatelessWidget {
                         const SizedBox(height: 40),
                         customTitleAppbar(
                           title: 'Forget Password',
-                          icon: Icons.arrow_back_ios_new,
+                          leftIcon: Icons.arrow_back_ios_new,
                         ),
                         const SizedBox(height: 20),
                         Container(

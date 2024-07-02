@@ -21,7 +21,7 @@ class MainProfileScreen extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.only(top: 45, left: 12, right: 12),
                   child: customTitleAppbar(
-                      title: "Profile", icon: Icons.arrow_back_ios_new),
+                      title: "Profile", leftIcon: Icons.arrow_back_ios_new),
                 ),
                 SizedBox(
                   height: 20,
@@ -43,7 +43,7 @@ class MainProfileScreen extends StatelessWidget {
                                 style: TextStyle(
                                     color: Colors.white,
                                     fontSize: 16,
-                                    fontWeight: FontWeight.w700),
+                                    fontWeight: FontWeight.w400),
                               )),
                           SizedBox(
                             height: 8,
@@ -361,7 +361,6 @@ class MainProfileScreen extends StatelessWidget {
           CustomFab(),
         ],
       ),
-    
     );
   }
 }
