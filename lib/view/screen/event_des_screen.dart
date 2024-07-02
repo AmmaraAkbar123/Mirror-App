@@ -166,13 +166,11 @@ class _EventDesScreenState extends State<EventDesScreen> {
                   ),
                   child: Column(
                     children: [
-                      //const Divider(color: Colors.white),
                       Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 12),
                         child: Container(
                           height: 215,
                           width: double.infinity,
-                          // padding: const EdgeInsets.all(10),
                           decoration: BoxDecoration(
                               color: const Color.fromARGB(0, 0, 0, 0)
                                   .withOpacity(0.37),
@@ -196,7 +194,6 @@ class _EventDesScreenState extends State<EventDesScreen> {
                                             fontWeight: FontWeight.w400,
                                             color: Colors.white),
                                       ),
-                                      // SizedBox(height: 10),
                                       Expanded(
                                         child: SingleChildScrollView(
                                           child: Column(
@@ -262,7 +259,6 @@ class _EventDesScreenState extends State<EventDesScreen> {
                           ),
                         ),
                       ),
-                      //  const Divider(color: Colors.white),
                     ],
                   ),
                 ),

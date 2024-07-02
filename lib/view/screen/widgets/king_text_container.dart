@@ -34,7 +34,7 @@ class KingTextsContainer extends StatelessWidget {
             ),
           ),
         ),
-        Text(txt2, style: TextStyle(color: Colors.black, fontSize: fontSize)),
+        Text(txt2, style: TextStyle(color: Colors.white, fontSize: fontSize)),
       ],
     );
   }

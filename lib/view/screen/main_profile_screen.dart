@@ -111,12 +111,15 @@ class MainProfileScreen extends StatelessWidget {
                             SizedBox(
                               width: 5,
                             ),
-                            ShakeKingContainer(
-                              height: 25,
-                              width: 50,
-                              singleTxtSize: 8,
-                              txt1: "Tickle",
-                              icon: Icons.air,
+                            GestureDetector(
+                              onTap: () => Navigator.of(context).pushNamed('/cloudchat'),
+                              child: ShakeKingContainer(
+                                height: 25,
+                                width: 50,
+                                singleTxtSize: 8,
+                                txt1: "Messa",
+                                icon: Icons.message,
+                              ),
                             ),
                             SizedBox(
                               width: 5,
@@ -125,9 +128,10 @@ class MainProfileScreen extends StatelessWidget {
                               height: 25,
                               width: 50,
                               singleTxtSize: 8,
-                              txt1: "Messa",
-                              icon: Icons.message,
+                              txt1: "Tickle",
+                              icon: Icons.air,
                             ),
+                            
                           ],
                         ),
                       )
@@ -361,6 +365,7 @@ class MainProfileScreen extends StatelessWidget {
           CustomFab(),
         ],
       ),
+    
     );
   }
 }
