@@ -47,11 +47,15 @@ class HomeScreen extends StatelessWidget {
                         cardWidth: 100,
                       ),
                     ),
-                    const EventCard(
-                      imagePath: 'assets/images/new-year.jpeg',
-                      eventName: 'New Year',
-                      participants: '122',
-                      cardWidth: 100,
+                    GestureDetector(
+                      onTap: () =>
+                          Navigator.of(context).pushNamed('/notification'),
+                      child: const EventCard(
+                        imagePath: 'assets/images/new-year.jpeg',
+                        eventName: 'New Year',
+                        participants: '122',
+                        cardWidth: 100,
+                      ),
                     ),
                     const EventCard(
                       imagePath: 'assets/images/eid.jpeg',

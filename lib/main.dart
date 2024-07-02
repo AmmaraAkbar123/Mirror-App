@@ -8,6 +8,7 @@ import 'package:mirror/authentication/screen/new_password_screen.dart';
 import 'package:mirror/authentication/screen/very_email_otp_screen.dart';
 import 'package:mirror/view/screen/main_profile_screen.dart';
 import 'package:mirror/view/screen/navigation_screen.dart';
+import 'package:mirror/view/screen/notification_screen.dart';
 import 'package:mirror/view/screen/profile_screen.dart';
 import 'package:mirror/view/screen/statistics_screen.dart';
 import 'package:mirror/view/screen/upcoming_events_screen.dart';
@@ -46,7 +47,7 @@ class MyApp extends StatelessWidget {
         '/event': (context) => const EventDesScreen(),
         '/upcomingevent': (context) => const UpcomingEventsScreen(),
         '/cloudChat': (context) => const CloudChatScreen(),
-
+        '/notification': (context) => NotificationScreen(),
       },
       debugShowCheckedModeBanner: false,
     );
