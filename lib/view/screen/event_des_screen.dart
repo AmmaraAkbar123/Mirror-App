@@ -57,16 +57,19 @@ class _EventDesScreenState extends State<EventDesScreen> {
         fit: StackFit.expand,
         children: [
           Image.asset('assets/images/image.jpeg', fit: BoxFit.cover),
-          Padding(
-            padding: const EdgeInsets.only(left: 15, right: 15, top: 45),
-            child: SingleChildScrollView(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const customTitleAppbar(
+          SingleChildScrollView(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(top: 40, left: 12, right: 12),
+                  child: const customTitleAppbar(
                       title: "Event Des", icon: Icons.arrow_back_ios_new),
-                  const SizedBox(height: 20),
-                  Container(
+                ),
+                const SizedBox(height: 20),
+                Padding(
+                  padding: const EdgeInsets.only(left: 12, right: 12),
+                  child: Container(
                     width: double.infinity,
                     height: 160,
                     decoration: BoxDecoration(
@@ -101,8 +104,12 @@ class _EventDesScreenState extends State<EventDesScreen> {
                       ),
                     ),
                   ),
-                  const SizedBox(height: 15),
-                  const Row(
+                ),
+                const SizedBox(height: 15),
+                ////
+                Padding(
+                  padding: const EdgeInsets.only(left: 12, right: 12),
+                  child: const Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
@@ -124,128 +131,160 @@ class _EventDesScreenState extends State<EventDesScreen> {
                       )
                     ],
                   ),
-                  const SizedBox(height: 5),
-                  Container(
-                    width: double.infinity,
-                    child: const Divider(color: Colors.white),
-                  ),
-                  const SizedBox(height: 5),
-                  const Text(
+                ),
+                const SizedBox(height: 5),
+                Container(
+                  width: double.infinity,
+                  child: const Divider(color: Colors.white),
+                ),
+                // const SizedBox(height: 5),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 12),
+                  child: const Text(
                     "Content",
                     style: TextStyle(
                       color: Colors.white,
                       fontSize: 13,
                     ),
                   ),
-                  const SizedBox(height: 5),
-                  const ContentBox(),
-                  const SizedBox(height: 10),
-                  Container(
-                    width: double.infinity,
-                    child: const Divider(color: Colors.white),
+                ),
+                const SizedBox(height: 5),
+                Padding(
+                  padding: const EdgeInsets.only(left: 30, right: 30),
+                  child: const ContentBox(),
+                ),
+                const SizedBox(height: 16),
+
+                Container(
+                  decoration: BoxDecoration(
+                    border: Border(
+                      top: BorderSide(color: Colors.white, width: 1),
+                      bottom: BorderSide(color: Colors.white, width: 1),
+                      left: BorderSide.none,
+                      right: BorderSide.none,
+                    ),
                   ),
-                  Container(
-                    height: 215,
-                    width: double.infinity,
-                    padding: const EdgeInsets.all(10),
-                    decoration: BoxDecoration(
-                        color:
-                            const Color.fromARGB(0, 0, 0, 0).withOpacity(0.37),
-                        borderRadius: const BorderRadius.all(
-                          Radius.circular(12),
-                        )),
-                    child: Row(
-                      children: [
-                        Expanded(
-                          flex: 1,
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
+                  child: Column(
+                    children: [
+                      //const Divider(color: Colors.white),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 12),
+                        child: Container(
+                          height: 215,
+                          width: double.infinity,
+                          // padding: const EdgeInsets.all(10),
+                          decoration: BoxDecoration(
+                              color: const Color.fromARGB(0, 0, 0, 0)
+                                  .withOpacity(0.37),
+                              borderRadius: const BorderRadius.all(
+                                Radius.circular(12),
+                              )),
+                          child: Row(
                             children: [
-                             
-                              const Text(
-                                'Participants',
-                                style: TextStyle(
-                                    fontSize: 13,
-                                    fontWeight: FontWeight.w400,
-                                    color: Colors.white),
-                              ),
-                              // SizedBox(height: 10),
                               Expanded(
-                                child: SingleChildScrollView(
+                                flex: 1,
+                                child: Padding(
+                                  padding: const EdgeInsets.all(8.0),
                                   child: Column(
-                                    children: List.generate(
-                                      _isExpanded ? 10 : 8,
-                                      (index) {
-                                        return Padding(
-                                          padding: const EdgeInsets.symmetric(
-                                              vertical: 2),
-                                          child: Row(
-                                            children: [
-                                              CircleAvatar(
-                                                radius: 8,
-                                                backgroundImage:
-                                                    AssetImage(images[index]),
-                                              ),
-                                              const SizedBox(width: 6),
-                                              Text(
-                                                names[index],
-                                                style: const TextStyle(
-                                                    fontSize: 10,
-                                                    fontWeight: FontWeight.w300,
-                                                    color: Colors.white),
-                                              ),
-                                            ],
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      const Text(
+                                        'Participants',
+                                        style: TextStyle(
+                                            fontSize: 13,
+                                            fontWeight: FontWeight.w400,
+                                            color: Colors.white),
+                                      ),
+                                      // SizedBox(height: 10),
+                                      Expanded(
+                                        child: SingleChildScrollView(
+                                          child: Column(
+                                            children: List.generate(
+                                              _isExpanded ? 10 : 8,
+                                              (index) {
+                                                return Padding(
+                                                  padding: const EdgeInsets
+                                                      .symmetric(vertical: 2),
+                                                  child: Row(
+                                                    children: [
+                                                      CircleAvatar(
+                                                        radius: 8,
+                                                        backgroundImage:
+                                                            AssetImage(
+                                                                images[index]),
+                                                      ),
+                                                      const SizedBox(width: 6),
+                                                      Text(
+                                                        names[index],
+                                                        style: const TextStyle(
+                                                            fontSize: 10,
+                                                            fontWeight:
+                                                                FontWeight.w300,
+                                                            color:
+                                                                Colors.white),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                );
+                                              },
+                                            ),
                                           ),
-                                        );
-                                      },
-                                    ),
+                                        ),
+                                      ),
+
+                                      GestureDetector(
+                                        onTap: () {
+                                          setState(() {
+                                            _isExpanded = !_isExpanded;
+                                          });
+                                        },
+                                        child: Text(
+                                          _isExpanded
+                                              ? 'Show less'
+                                              : 'Show more',
+                                          style: const TextStyle(
+                                              color: Colors.blue,
+                                              fontWeight: FontWeight.bold,
+                                              fontSize: 8),
+                                        ),
+                                      ),
+                                    ],
                                   ),
                                 ),
                               ),
-
-                              GestureDetector(
-                                onTap: () {
-                                  setState(() {
-                                    _isExpanded = !_isExpanded;
-                                  });
-                                },
-                                child: Text(
-                                  _isExpanded ? 'Show less' : 'Show more',
-                                  style: const TextStyle(
-                                      color: Colors.blue,
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 8),
-                                ),
+                              const VerticalDivider(color: Colors.white),
+                              Expanded(
+                                flex: 2,
+                                child: CustomGraph(data: graphData),
                               ),
                             ],
                           ),
                         ),
-                        const VerticalDivider(color: Colors.white),
-                        Expanded(
-                          flex: 2,
-                          child: CustomGraph(data: graphData),
-                        ),
-                      ],
-                    ),
+                      ),
+                      //  const Divider(color: Colors.white),
+                    ],
                   ),
-                  const Divider(color: Colors.white),
-                  const Text(
+                ),
+
+                Padding(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 12, vertical: 5),
+                  child: const Text(
                     "Shadows",
                     style: TextStyle(
                       color: Colors.white,
                       fontSize: 13,
                     ),
                   ),
-                  const SizedBox(height: 100),
-                ],
-              ),
+                ),
+                const SizedBox(height: 100),
+              ],
             ),
           ),
           CustomFab(),
         ],
       ),
-
-      
     );
   }
 }

@@ -4,7 +4,6 @@ import 'package:mirror/view/screen/contest_screen.dart';
 import 'package:mirror/view/screen/home_screen.dart';
 import 'package:mirror/authentication/screen/new_password_screen.dart';
 import 'package:mirror/authentication/screen/very_email_otp_screen.dart';
-import 'package:mirror/view/screen/main_profile_screen.dart';
 import 'package:mirror/view/screen/navigation_screen.dart';
 import 'package:mirror/view/screen/profile_screen.dart';
 import 'package:mirror/view/screen/statistics_screen.dart';
@@ -30,7 +29,7 @@ class MyApp extends StatelessWidget {
       ),
       home: const SplashScreen(),
       routes: {
-        '/login': (context) => const MainProfileScreen(),
+        '/login': (context) => const LoginScreen(),
         '/signup': (context) => const SignupScreen(),
         '/forgetpassword': (context) => const ForgetPasswordScreen(),
         '/verifyemailotp': (context) => const VerifyEmailOtp(),
