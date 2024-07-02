@@ -14,7 +14,7 @@ class KingTextsContainer extends StatelessWidget {
     this.height = 30,
     this.width = 30,
     this.fontSize = 15,
-    this.singleTxtSize = 10,
+    this.singleTxtSize = 15,
   });
 
   @override
