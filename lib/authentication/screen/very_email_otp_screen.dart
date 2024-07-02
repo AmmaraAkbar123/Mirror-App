@@ -62,7 +62,7 @@ class _VerifyEmailOtpState extends State<VerifyEmailOtp> {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         const SizedBox(height: 40),
-                        customTitleAppbar(
+                        CustomTitleAppbar(
                           title: 'Forget Password',
                           leftIcon: Icons.arrow_back_ios_new,
                         ),

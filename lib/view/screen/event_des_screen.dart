@@ -63,7 +63,7 @@ class _EventDesScreenState extends State<EventDesScreen> {
               children: [
                 Padding(
                   padding: const EdgeInsets.only(top: 40, left: 12, right: 12),
-                  child: const customTitleAppbar(
+                  child: const CustomTitleAppbar(
                       title: "Event Des", leftIcon: Icons.arrow_back_ios_new),
                 ),
                 const SizedBox(height: 20),

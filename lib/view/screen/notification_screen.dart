@@ -39,9 +39,10 @@ class NotificationScreen extends StatelessWidget {
             children: [
               Padding(
                 padding: const EdgeInsets.only(left: 15, right: 15, top: 45),
-                child: customTitleAppbar(
+                child: CustomTitleAppbar(
                   title: "Notifications",
                   leftIcon: Icons.arrow_back_ios_new,
+                  rightIcon: Icons.notifications,
                 ),
               ),
               SizedBox(height: 20),

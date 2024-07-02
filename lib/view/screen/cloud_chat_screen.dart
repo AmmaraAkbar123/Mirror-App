@@ -47,7 +47,7 @@ class CloudChatScreen extends StatelessWidget {
               children: [
                 Padding(
                   padding: const EdgeInsets.only(top: 45, left: 12, right: 12),
-                  child: customTitleAppbar(
+                  child: CustomTitleAppbar(
                       title: "Cloud Chat", leftIcon: Icons.arrow_back_ios_new),
                 ),
                 const SizedBox(

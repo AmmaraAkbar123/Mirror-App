@@ -20,7 +20,7 @@ class UpcomingEventsScreen extends StatelessWidget {
                 padding: const EdgeInsets.only(left: 15, right: 15, top: 45),
                 child: Column(
                   children: [
-                    customTitleAppbar(
+                    CustomTitleAppbar(
                         title: "Upcoming Events",
                         leftIcon: Icons.arrow_back_ios_new),
                     SizedBox(

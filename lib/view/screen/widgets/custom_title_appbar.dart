@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 
-class customTitleAppbar extends StatelessWidget {
+class CustomTitleAppbar extends StatelessWidget {
   final String title;
-
   final IconData? leftIcon;
   final IconData? rightIcon;
 
-  const customTitleAppbar({
+  const CustomTitleAppbar({
     super.key,
     required this.title,
     this.leftIcon,
@@ -42,14 +41,29 @@ class customTitleAppbar extends StatelessWidget {
             child: Text(
               title,
               style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 17,
-                  fontWeight: FontWeight.w700),
+                color: Colors.white,
+                fontSize: 17,
+                fontWeight: FontWeight.w700,
+              ),
               textAlign: TextAlign.center,
             ),
           ),
         ),
-        const SizedBox(width: 25), // Placeholder to balance the Row
+        rightIcon != null
+            ? IconButton(
+                padding: EdgeInsets.zero,
+                icon: Icon(
+                  rightIcon,
+                  color: Colors.white,
+                  size: 20,
+                ),
+                onPressed: () {
+                  // Define what happens when the right icon is pressed
+                },
+              )
+            : Container(
+                width: 25, // Placeholder to balance the Row
+              ),
       ],
     );
   }
