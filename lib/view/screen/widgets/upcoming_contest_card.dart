@@ -48,20 +48,20 @@ class UpcomingContestCard extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        if (date != null)
+                        if (day != null)
                           FittedBox(
                             child: Text(
-                              date!,
+                              day!,
                               style: const TextStyle(
                                 color: Colors.black,
                                 fontSize: 9,
                               ),
                             ),
                           ),
-                        if (day != null)
+                        if (date != null)
                           FittedBox(
                             child: Text(
-                              day!,
+                              date!,
                               style: const TextStyle(
                                 color: Colors.black,
                                 fontSize: 15,

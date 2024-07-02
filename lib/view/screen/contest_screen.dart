@@ -23,7 +23,7 @@ class ContestScreen extends StatelessWidget {
             icon: Icons.arrow_back_ios_new,
           ),
           Positioned(
-            top: 190,
+            top: 120,
             left: 20,
             right: 20,
             bottom: 0,
@@ -31,30 +31,22 @@ class ContestScreen extends StatelessWidget {
               child: Column(
                 children: [
                   GridView.builder(
-                    shrinkWrap:
-                        true, // Ensures the grid view takes only the necessary height
-                    physics:
-                        NeverScrollableScrollPhysics(), // Prevents scrolling inside the grid view
-                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: MediaQuery.of(context).size.width < 400
-                          ? 2
-                          : 3, // Responsive columns
-                      childAspectRatio: 0.75, // Aspect ratio of each item
-                      crossAxisSpacing: 15, // Horizontal space between items
-                      mainAxisSpacing: 10, // Vertical space between items
+                    shrinkWrap: true,
+                    physics: const NeverScrollableScrollPhysics(),
+                    gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
+                      maxCrossAxisExtent: MediaQuery.of(context).size.width / 3,
+                      childAspectRatio: 0.75,
+                      crossAxisSpacing: 10,
+                      mainAxisSpacing: 20,
                     ),
-                    itemCount:
-                        events.length, // Number of event cards to display
+                    itemCount: events.length,
                     itemBuilder: (context, index) {
                       final event = events[index];
                       return EventCard(
                         imagePath: event.imagePath,
                         eventName: event.eventName,
                         participants: event.participants,
-                        cardWidth: (MediaQuery.of(context).size.width - 70) /
-                            (MediaQuery.of(context).size.width < 400
-                                ? 2
-                                : 3), // Adjust the width based on screen size
+                        cardWidth: MediaQuery.of(context).size.width / 3,
                       );
                     },
                   ),

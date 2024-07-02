@@ -22,13 +22,16 @@ class HomeScreen extends StatelessWidget {
             backgroundImage: 'assets/images/bar.jpg',
           ),
           Positioned(
-            top: 150,
+            top: 120,
             left: 20,
             right: 20,
             bottom: 0,
             child: SingleChildScrollView(
               child: Column(
                 children: [
+                  SizedBox(
+                    height: 5,
+                  ),
                   SectionHeader(
                     title: "Featured Contests",
                     exploreText: "Explore",
@@ -36,7 +39,7 @@ class HomeScreen extends StatelessWidget {
                   const SizedBox(height: 10),
                   _buildHorizontalScrollSection([
                     GestureDetector(
-                     onTap: () => Navigator.of(context).pushNamed('/event'),
+                      onTap: () => Navigator.of(context).pushNamed('/event'),
                       child: const EventCard(
                         imagePath: 'assets/images/diwali.jpeg',
                         eventName: 'Diwali',
@@ -93,7 +96,8 @@ class HomeScreen extends StatelessWidget {
                           builder: (context) => UpcomingEventsScreen()),
                     ),
                     child: GestureDetector(
-                      onTap: () => Navigator.of(context).pushNamed('/upcomingevent'),
+                      onTap: () =>
+                          Navigator.of(context).pushNamed('/upcomingevent'),
                       child: SectionHeader(
                         title: "Upcoming Contests",
                       ),
@@ -101,7 +105,8 @@ class HomeScreen extends StatelessWidget {
                   ),
                   const SizedBox(height: 10),
                   GestureDetector(
-                    onTap: () => Navigator.of(context).pushNamed('/upcomingevent'),
+                    onTap: () =>
+                        Navigator.of(context).pushNamed('/upcomingevent'),
                     child: UpcomingContestCard(
                       eventName: 'Diwali Celebration Event',
                       day: 'JAN',
