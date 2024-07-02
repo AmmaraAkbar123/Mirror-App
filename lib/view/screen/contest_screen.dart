@@ -19,6 +19,7 @@ class ContestScreen extends StatelessWidget {
           const TextandImageBar(
             title: 'Explore',
             image: 'assets/images/boy.png',
+            backgroundImage: 'assets/images/bar.jpg',
             icon: Icons.arrow_back_ios_new,
           ),
           Positioned(

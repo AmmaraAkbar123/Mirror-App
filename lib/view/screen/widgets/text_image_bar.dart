@@ -1,16 +1,20 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
-import 'package:mirror/authentication/screen/widgets/custom_textfield.dart';
+
+import 'package:mirror/view/screen/widgets/custom_search_field.dart';
 
 class TextandImageBar extends StatelessWidget {
   final String title;
   final String image;
+  final String backgroundImage;
   final IconData? icon;
 
   const TextandImageBar({
     super.key,
     required this.title,
     required this.image,
-    this.icon,
+    required this.backgroundImage,
+    this.icon, 
   });
 
   @override
@@ -19,73 +23,91 @@ class TextandImageBar extends StatelessWidget {
       top: 0,
       left: 0,
       right: 0,
-      child: Container(
-        height: 180,
-        decoration: BoxDecoration(
-          color: const Color.fromARGB(0xA1, 0x08, 0x88, 0xFD).withOpacity(0.4),
-          borderRadius: const BorderRadius.only(
-            bottomLeft: Radius.circular(25),
-            bottomRight: Radius.circular(25),
+      child: Stack(
+        children: [
+          // Background Image
+          Container(
+            height: 120,
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage(backgroundImage),
+                fit: BoxFit.cover,
+                colorFilter: ColorFilter.mode(
+                  Colors.black.withOpacity(0.3), // Adjust the transparency
+                  BlendMode.darken, // Apply a color hue
+                ),
+              ),
+              borderRadius: const BorderRadius.only(
+                bottomLeft: Radius.circular(16),
+                bottomRight: Radius.circular(16),
+              ),
+            ),
           ),
-        ),
-        padding: const EdgeInsets.all(20.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.end,
-          children: [
-            Row(
+          // Foreground content
+          Container(
+            height: 120,
+            decoration: BoxDecoration(
+              color: Color(0xA00888FD).withOpacity(0.63),
+              borderRadius: const BorderRadius.only(
+                bottomLeft: Radius.circular(16),
+                bottomRight: Radius.circular(16),
+              ),
+            ),
+            padding: const EdgeInsets.all(16.0),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Visibility(
-                  visible: icon != null,
-                  child: Container(
-                    height: 25,
-                    width: 25,
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(100),
-                        border: Border.all(color: Colors.white)),
-                    child: IconButton(
-                      padding: EdgeInsets.zero,
-                      icon: const Icon(
-                        Icons.arrow_back_ios_new,
-                        color: Colors.white,
-                        size: 12,
+                Row(
+                  children: [
+                    if (icon != null)
+                      Container(
+                        height: 22,
+                        width: 22,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(100),
+                          border: Border.all(color: Colors.white),
+                        ),
+                        child: IconButton(
+                          padding: EdgeInsets.zero,
+                          icon: const Icon(
+                            Icons.arrow_back_ios_new,
+                            color: Colors.white,
+                            size: 10,
+                          ),
+                          onPressed: () {
+                            Navigator.pop(context);
+                          },
+                        ),
                       ),
-                      onPressed: () {
-                        Navigator.pop(context);
-                      },
-                    ),
-                  ),
-                ),
-                Expanded(
-                  child: Center(
-                    child: Text(
-                      title,
-                      style: const TextStyle(
-                        color: Colors.white,
-                        fontSize: 24,
-                        fontWeight: FontWeight.bold,
+                    Expanded(
+                      child: Center(
+                        child: Text(
+                          title,
+                          style: const TextStyle(
+                            color: Colors.white,
+                            fontSize: 16,
+                            fontWeight: FontWeight.w700,
+                          ),
+                          textAlign: TextAlign.center,
+                        ),
                       ),
-                      textAlign: TextAlign.center,
                     ),
-                  ),
+                    CircleAvatar(
+                      radius: 20,
+                      backgroundImage: AssetImage(image),
+                    ),
+                  ],
                 ),
-                Positioned(
-                  top: 50,
-                  right: 20,
-                  child: CircleAvatar(
-                    radius: 25,
-                    backgroundImage: AssetImage(image),
-                  ),
+                const SizedBox(height: 10),
+                const CustomSearchField(
+                  width: double.infinity,
+                  icon: Icons.search,
+                  hinttext: "Search",
                 ),
               ],
             ),
-            const SizedBox(height: 20),
-            const CustomSearchField(
-              width: double.infinity,
-              icon: Icons.search,
-              hinttext: "Search",
-            ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

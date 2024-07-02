@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:mirror/view/screen/event_des_screen.dart';
 import 'package:mirror/view/screen/upcoming_events_screen.dart';
 import 'package:mirror/view/screen/widgets/event_card.dart';
 import 'package:mirror/view/screen/widgets/feed_section.dart';
@@ -20,9 +19,10 @@ class HomeScreen extends StatelessWidget {
           const TextandImageBar(
             title: 'Home',
             image: 'assets/images/boy.png',
+            backgroundImage: 'assets/images/bar.jpg',
           ),
           Positioned(
-            top: 190,
+            top: 150,
             left: 20,
             right: 20,
             bottom: 0,
@@ -36,9 +36,7 @@ class HomeScreen extends StatelessWidget {
                   const SizedBox(height: 10),
                   _buildHorizontalScrollSection([
                     GestureDetector(
-                      onTap: () => Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => const EventDesScreen(),
-                      )),
+                     onTap: () => Navigator.of(context).pushNamed('/event'),
                       child: const EventCard(
                         imagePath: 'assets/images/diwali.jpeg',
                         eventName: 'Diwali',
@@ -94,17 +92,23 @@ class HomeScreen extends StatelessWidget {
                       MaterialPageRoute(
                           builder: (context) => UpcomingEventsScreen()),
                     ),
-                    child: SectionHeader(
-                      title: "Upcoming Contests",
+                    child: GestureDetector(
+                      onTap: () => Navigator.of(context).pushNamed('/upcomingevent'),
+                      child: SectionHeader(
+                        title: "Upcoming Contests",
+                      ),
                     ),
                   ),
                   const SizedBox(height: 10),
-                  UpcomingContestCard(
-                    eventName: 'Diwali Celebration Event',
-                    day: 'JAN',
-                    date: '31',
-                    location: 'New York, US',
-                    imagePath: 'assets/images/upcoming.jpeg',
+                  GestureDetector(
+                    onTap: () => Navigator.of(context).pushNamed('/upcomingevent'),
+                    child: UpcomingContestCard(
+                      eventName: 'Diwali Celebration Event',
+                      day: 'JAN',
+                      date: '31',
+                      location: 'New York, US',
+                      imagePath: 'assets/images/upcoming.jpeg',
+                    ),
                   ),
                   const SizedBox(height: 40),
                   const Row(

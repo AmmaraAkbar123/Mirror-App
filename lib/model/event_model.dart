@@ -1,4 +1,3 @@
-import 'package:mirror/view/screen/contest_screen.dart';
 
 class EventModel {
   final String imagePath;

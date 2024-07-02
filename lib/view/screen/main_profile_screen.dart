@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mirror/view/screen/widgets/content_box.dart';
+import 'package:mirror/view/screen/widgets/custom_fab.dart';
 import 'package:mirror/view/screen/widgets/custom_title_appbar.dart';
 import 'package:mirror/view/screen/widgets/king_text_container.dart';
 import 'package:mirror/view/screen/widgets/shake_king_container.dart';
@@ -354,12 +355,13 @@ class MainProfileScreen extends StatelessWidget {
                 SizedBox(
                   height: 10,
                 ),
-                //////
               ],
             ),
           ),
+          CustomFab(),
         ],
       ),
+    
     );
   }
 }

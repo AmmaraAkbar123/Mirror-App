@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mirror/view/screen/event_des_screen.dart';
-import 'package:mirror/view/screen/profile_screen.dart';
+import 'package:mirror/view/screen/main_profile_screen.dart';
 import 'package:mirror/view/screen/contest_screen.dart';
 import 'package:mirror/view/screen/home_screen.dart';
 
@@ -17,7 +17,7 @@ class _NavigationScreenState extends State<NavigationScreen> {
     const HomeScreen(),
     const ContestScreen(),
     const EventDesScreen(),
-    const ProfileScreen(),
+    const MainProfileScreen(),
   ];
 
   void _onTabTapped(int index) {

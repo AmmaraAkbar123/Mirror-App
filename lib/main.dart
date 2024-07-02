@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:mirror/authentication/screen/forget_pasword_screen.dart';
+import 'package:mirror/view/screen/cloud_chat_screen.dart';
 import 'package:mirror/view/screen/contest_screen.dart';
+import 'package:mirror/view/screen/event_des_screen.dart';
 import 'package:mirror/view/screen/home_screen.dart';
 import 'package:mirror/authentication/screen/new_password_screen.dart';
 import 'package:mirror/authentication/screen/very_email_otp_screen.dart';
+import 'package:mirror/view/screen/main_profile_screen.dart';
 import 'package:mirror/view/screen/navigation_screen.dart';
 import 'package:mirror/view/screen/profile_screen.dart';
 import 'package:mirror/view/screen/statistics_screen.dart';
@@ -39,6 +42,11 @@ class MyApp extends StatelessWidget {
         '/contest': (context) => const ContestScreen(),
         '/profile': (context) => const ProfileScreen(),
         '/statistics': (context) => const StatisticsScreen(),
+        '/mainprofile': (context) => const MainProfileScreen(),
+        '/event': (context) => const EventDesScreen(),
+        '/upcomingevent': (context) => const UpcomingEventsScreen(),
+        '/cloudChat': (context) => const CloudChatScreen(),
+
       },
       debugShowCheckedModeBanner: false,
     );
