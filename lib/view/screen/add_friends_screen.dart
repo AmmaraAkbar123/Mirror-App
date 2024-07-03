@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:mirror/view/screen/widgets/custom_title_appbar.dart';
 
 class AddFriendsScreen extends StatelessWidget {
-  AddFriendsScreen({super.key});
+  AddFriendsScreen({Key? key}) : super(key: key);
+
   final List<NotificationModel> notifications = [
     NotificationModel(
       username: 'John Doe',
@@ -27,8 +28,6 @@ class AddFriendsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Get the height of the screen
-
     return Scaffold(
       body: Stack(
         fit: StackFit.expand,
@@ -64,7 +63,6 @@ class AddFriendsScreen extends StatelessWidget {
                           ),
                         ),
                       ),
-                      ///////////////////////
                       ListView.builder(
                         padding: const EdgeInsets.all(10),
                         shrinkWrap: true,
@@ -79,16 +77,17 @@ class AddFriendsScreen extends StatelessWidget {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Container(
-                                      height: 60,
-                                      width: 60,
-                                      child: ClipRRect(
-                                        borderRadius: BorderRadius.circular(14),
-                                        child: Image(
-                                          fit: BoxFit.cover,
-                                          image: AssetImage(
-                                              notification.userImage),
-                                        ),
-                                      )),
+                                    height: 60,
+                                    width: 60,
+                                    child: ClipRRect(
+                                      borderRadius: BorderRadius.circular(14),
+                                      child: Image(
+                                        fit: BoxFit.cover,
+                                        image:
+                                            AssetImage(notification.userImage),
+                                      ),
+                                    ),
+                                  ),
                                   SizedBox(width: 10),
                                   Expanded(
                                     child: Column(
@@ -104,9 +103,7 @@ class AddFriendsScreen extends StatelessWidget {
                                         SizedBox(height: 5),
                                         Text(
                                           notification.follower,
-                                          style: TextStyle(
-                                            color: Colors.white,
-                                          ),
+                                          style: TextStyle(color: Colors.white),
                                         ),
                                         SizedBox(height: 5),
                                         Text(
@@ -120,11 +117,11 @@ class AddFriendsScreen extends StatelessWidget {
                                     ),
                                   ),
                                   ConditionalButton(
-                                    hasIcon:
-                                        false, // Change to false to show button without icon
                                     onPressed: () {
-                                      // Add your onPressed logic here
+                                      _showAcceptDialog(
+                                          context, notification, false);
                                     },
+                                    hasIcon: false,
                                   ),
                                 ],
                               ),
@@ -153,7 +150,6 @@ class AddFriendsScreen extends StatelessWidget {
                           ],
                         ),
                       ),
-                      //////////////////
                       ListView.builder(
                         padding: const EdgeInsets.all(10),
                         shrinkWrap: true,
@@ -168,16 +164,17 @@ class AddFriendsScreen extends StatelessWidget {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Container(
-                                      height: 60,
-                                      width: 60,
-                                      child: ClipRRect(
-                                        borderRadius: BorderRadius.circular(14),
-                                        child: Image(
-                                          fit: BoxFit.cover,
-                                          image: AssetImage(
-                                              notification.userImage),
-                                        ),
-                                      )),
+                                    height: 60,
+                                    width: 60,
+                                    child: ClipRRect(
+                                      borderRadius: BorderRadius.circular(14),
+                                      child: Image(
+                                        fit: BoxFit.cover,
+                                        image:
+                                            AssetImage(notification.userImage),
+                                      ),
+                                    ),
+                                  ),
                                   SizedBox(width: 10),
                                   Expanded(
                                     child: Column(
@@ -193,9 +190,7 @@ class AddFriendsScreen extends StatelessWidget {
                                         SizedBox(height: 5),
                                         Text(
                                           notification.follower,
-                                          style: TextStyle(
-                                            color: Colors.white,
-                                          ),
+                                          style: TextStyle(color: Colors.white),
                                         ),
                                         SizedBox(height: 5),
                                         Text(
@@ -209,11 +204,11 @@ class AddFriendsScreen extends StatelessWidget {
                                     ),
                                   ),
                                   ConditionalButton(
-                                    hasIcon:
-                                        true, // Change to false to show button without icon
                                     onPressed: () {
-                                      // Add your onPressed logic here
+                                      _showAcceptDialog(
+                                          context, notification, false);
                                     },
+                                    hasIcon: true,
                                   ),
                                 ],
                               ),
@@ -230,6 +225,139 @@ class AddFriendsScreen extends StatelessWidget {
           ),
         ],
       ),
+    );
+  }
+
+///////////////////
+  ///
+  void _showAcceptDialog(BuildContext context, NotificationModel notification,
+      bool isConfirmation) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return Dialog(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(20.0),
+          ),
+          child: Container(
+            width: MediaQuery.of(context).size.width *
+                0.9, // Set width to 90% of screen width
+            padding: EdgeInsets.all(20), // Add padding for better layout
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(25),
+                  child: Image(
+                    image: AssetImage(notification.userImage),
+                    width: 100,
+                    height: 100,
+                    fit: BoxFit.cover,
+                  ),
+                ),
+                SizedBox(height: 10),
+                Text(
+                  notification.username,
+                  style: TextStyle(
+                    fontSize: 10, // Adjusted font size
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                SizedBox(height: 10),
+                isConfirmation
+                    ? Column(
+                        children: [
+                          SizedBox(height: 20),
+                          Container(
+                            decoration: BoxDecoration(
+                              color: Color(0xff3A86FF),
+                              shape: BoxShape.circle,
+                            ),
+                            padding: EdgeInsets.all(10),
+                            child: Icon(
+                              Icons.done,
+                              color: Colors.white,
+                              size: 30,
+                            ),
+                          ),
+                        ],
+                      )
+                    : Column(
+                        children: [
+                          Text(
+                            "Confirm to add ${notification.username} as your friend",
+                            style: TextStyle(
+                              color: Color(0xff3A86FF),
+                              fontSize: 14,
+                            ),
+                            textAlign: TextAlign.center,
+                          ),
+                          SizedBox(height: 20),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children: [
+                              GestureDetector(
+                                onTap: () {
+                                  Navigator.pop(context);
+                                },
+                                child: Container(
+                                  width: MediaQuery.of(context).size.width *
+                                      0.3, // Dynamic width
+                                  height: 40,
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(20),
+                                    border: Border.all(color: Colors.black),
+                                  ),
+                                  child: Center(
+                                    child: Text(
+                                      "Cancel",
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.w800,
+                                        fontSize: 14,
+                                        color: Colors.black,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              SizedBox(width: 8),
+                              GestureDetector(
+                                onTap: () {
+                                  Navigator.pop(context);
+                                  _showAcceptDialog(
+                                      context, notification, true);
+                                },
+                                child: Container(
+                                  width: MediaQuery.of(context).size.width *
+                                      0.3, // Dynamic width
+                                  height: 40,
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(20),
+                                    color: Color(0xff3A86FF),
+                                    border: Border.all(color: Colors.black),
+                                  ),
+                                  child: Center(
+                                    child: Text(
+                                      "Confirm",
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.w800,
+                                        fontSize: 14,
+                                        color: Colors.white,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+              ],
+            ),
+          ),
+        );
+      },
     );
   }
 }
