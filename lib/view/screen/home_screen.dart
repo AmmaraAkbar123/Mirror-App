@@ -57,11 +57,14 @@ class HomeScreen extends StatelessWidget {
                         cardWidth: 100,
                       ),
                     ),
-                    const EventCard(
-                      imagePath: 'assets/images/eid.jpeg',
-                      eventName: 'Eid-ul-Fitr',
-                      participants: '122',
-                      cardWidth: 100,
+                    GestureDetector(
+                      onTap: () => Navigator.of(context).pushNamed('/addpost'),
+                      child: const EventCard(
+                        imagePath: 'assets/images/eid.jpeg',
+                        eventName: 'Eid-ul-Fitr',
+                        participants: '122',
+                        cardWidth: 100,
+                      ),
                     ),
                   ]),
                   const SizedBox(height: 20),

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:mirror/view/screen/widgets/content_box.dart';
-import 'package:mirror/view/screen/widgets/custom_fab.dart';
 import 'package:mirror/view/screen/widgets/custom_title_appbar.dart';
 
 class CloudChatScreen extends StatelessWidget {
@@ -61,6 +60,7 @@ class CloudChatScreen extends StatelessWidget {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
+                          SizedBox(width: 3),
                           Text(
                             'Channel 1',
                             style: TextStyle(
@@ -69,40 +69,41 @@ class CloudChatScreen extends StatelessWidget {
                                 fontWeight: FontWeight.w400),
                           ),
                           Text(
-                        'Channel 2',
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 10,
-                            fontWeight: FontWeight.w400),
-                      ),
-                      Text(
-                        'Channel 3',
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 10,
-                            fontWeight: FontWeight.w400),
-                      ),
-                      Text(
-                        'Channel 4',
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 10,
-                            fontWeight: FontWeight.w400),
-                      ),
-                      Text(
-                        'Channel 5',
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 10,
-                            fontWeight: FontWeight.w400),
-                      ),
-                      Text(
-                        'Channel 6',
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 10,
-                            fontWeight: FontWeight.w400),
-                      ),
+                            'Channel 2',
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 10,
+                                fontWeight: FontWeight.w400),
+                          ),
+                          Text(
+                            'Channel 3',
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 10,
+                                fontWeight: FontWeight.w400),
+                          ),
+                          Text(
+                            'Channel 4',
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 10,
+                                fontWeight: FontWeight.w400),
+                          ),
+                          Text(
+                            'Channel 5',
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 10,
+                                fontWeight: FontWeight.w400),
+                          ),
+                          Text(
+                            'Channel 6',
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 10,
+                                fontWeight: FontWeight.w400),
+                          ),
+                          SizedBox(width: 3,),
                         ],
                       ),
                       Container(
@@ -113,38 +114,36 @@ class CloudChatScreen extends StatelessWidget {
                       Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 8.0),
                         child: Row(
-                                          children: [
-                                            CircleAvatar(
-                                              radius: 12,
-                                              backgroundImage:
-                                                  AssetImage('assets/users/p3.png'),
-                                            ),
-                                            const SizedBox(width: 6),
-                                            Column(
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.start,
-                                              children: [
-                                                Text(
-                                                  'Jessica',
-                                                  style: const TextStyle(
-                                                      fontSize: 8,
-                                                      fontWeight: FontWeight.bold,
-                                                      color: Colors.black),
-                                                ),
-                                                Text(
-                                                  '12:00 am',
-                                                  style: const TextStyle(
-                                                      fontSize: 6,
-                                                      fontWeight:
-                                                          FontWeight.w300,
-                                                      color: Colors.white),
-                                                ),
-                                              ],
-                                            ),
-                                          ],
-                                        ),
+                          children: [
+                            CircleAvatar(
+                              radius: 12,
+                              backgroundImage:
+                                  AssetImage('assets/users/p3.png'),
+                            ),
+                            const SizedBox(width: 6),
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  'Jessica',
+                                  style: const TextStyle(
+                                      fontSize: 8,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.black),
+                                ),
+                                Text(
+                                  '12:00 am',
+                                  style: const TextStyle(
+                                      fontSize: 6,
+                                      fontWeight: FontWeight.w300,
+                                      color: Colors.white),
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
                       ),
-                                    
+
                       Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: ContentBox(),
@@ -152,39 +151,36 @@ class CloudChatScreen extends StatelessWidget {
                       Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 8.0),
                         child: Row(
-                                          children: [
-                                            CircleAvatar(
-                                              radius: 12,
-                                              backgroundImage:
-                                                  AssetImage('assets/users/p3.png'),
-                                            ),
-                                            const SizedBox(width: 6),
-                                            Column(
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.start,
-                                              children: [
-                                                Text(
-                                                  'Jessica',
-                                                  style: const TextStyle(
-                                                      fontSize: 8,
-                                                      fontWeight: FontWeight.bold,
-                                                      color: Colors.black),
-                                                ),
-                                                Text(
-                                                  '12:00 am',
-                                                  style: const TextStyle(
-                                                      fontSize: 6,
-                                                      fontWeight:
-                                                          FontWeight.w300,
-                                                      color: Colors.white),
-                                                ),
-                                              ],
-                                            ),
-                                          ],
-                                        ),
+                          children: [
+                            CircleAvatar(
+                              radius: 12,
+                              backgroundImage:
+                                  AssetImage('assets/users/p3.png'),
+                            ),
+                            const SizedBox(width: 6),
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  'Jessica',
+                                  style: const TextStyle(
+                                      fontSize: 8,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.black),
+                                ),
+                                Text(
+                                  '12:00 am',
+                                  style: const TextStyle(
+                                      fontSize: 6,
+                                      fontWeight: FontWeight.w300,
+                                      color: Colors.white),
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
                       ),
-                                    
-                                    
+
                       Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: ContentBox(),
@@ -241,15 +237,13 @@ class CloudChatScreen extends StatelessWidget {
                                                 messages[index],
                                                 style: const TextStyle(
                                                     fontSize: 6,
-                                                    fontWeight:
-                                                        FontWeight.w300,
+                                                    fontWeight: FontWeight.w300,
                                                     color: Colors.white),
                                               ),
                                             ],
                                           ),
                                         ],
                                       ),
-                                    
                                     );
                                   },
                                 ),
@@ -259,7 +253,7 @@ class CloudChatScreen extends StatelessWidget {
                         ),
                       ),
                       // Spacer for bottom row
-                      const SizedBox(height: 80), 
+                      const SizedBox(height: 80),
                     ],
                   ),
                 ),
@@ -308,27 +302,26 @@ class CloudChatScreen extends StatelessWidget {
                       ),
                     ),
                   ),
-                  const SizedBox(width: 8), // Add some space between text field and FAB
-                  // CustomFab(),
-                   Positioned(
-          child: FloatingActionButton(
-            onPressed: (){},
-            backgroundColor: Colors.blue,
-            shape:
-                RoundedRectangleBorder(borderRadius: BorderRadius.circular(50)),
-            child: Text(
-              'P',
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 24,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-          ),
-          bottom: 30,
-          right: 20,
-        ),
-      
+                  const SizedBox(
+                      width: 8), // Add some space between text field and FAB
+                  Positioned(
+                    child: FloatingActionButton(
+                      onPressed: () {},
+                      backgroundColor: Colors.blue,
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(50)),
+                      child: Text(
+                        'P',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 24,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                    bottom: 30,
+                    right: 20,
+                  ),
                 ],
               ),
             ),

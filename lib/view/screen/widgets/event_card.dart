@@ -44,8 +44,9 @@ class EventCard extends StatelessWidget {
                 top: 8,
                 right: 8,
                 child: Icon(
-                  Icons.favorite_border,
+                  Icons.favorite_border_outlined,
                   color: Colors.white,
+                  size: 16,
                 ),
               ),
             ],
