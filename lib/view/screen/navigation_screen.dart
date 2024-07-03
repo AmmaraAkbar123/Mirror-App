@@ -29,45 +29,44 @@ class _NavigationScreenState extends State<NavigationScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: _screens[_currentIndex],
-      bottomNavigationBar: Container(
-        decoration: BoxDecoration(
-          color: Colors.white.withOpacity(0.6),
-          borderRadius: BorderRadius.only(
-            topLeft: Radius.circular(30.0),
-            topRight: Radius.circular(30.0),
-          ),
-          boxShadow: [
-            BoxShadow(
-              color: Colors.black26,
-              blurRadius: 10,
-              offset: Offset(0, -1),
+      body: Stack(
+        children: [
+          _screens[_currentIndex],
+          Positioned(
+            bottom: 0,
+            left: 0,
+            right: 0,
+            child: ClipRRect(
+              borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(20.0),
+                topRight: Radius.circular(20.0),
+              ),
+              child: Container(
+                color: Colors.white.withOpacity(0.65), // Adjust as needed
+                child: BottomNavigationBar(
+                  type: BottomNavigationBarType.fixed,
+                  backgroundColor:
+                      Colors.transparent, // Ensure transparent background
+                  items: const [
+                    BottomNavigationBarItem(
+                        icon: Icon(Icons.home), label: 'Home'),
+                    BottomNavigationBarItem(
+                        icon: Icon(Icons.stars), label: 'Contest'),
+                    BottomNavigationBarItem(
+                        icon: Icon(Icons.bar_chart), label: 'Statistics'),
+                    BottomNavigationBarItem(
+                        icon: Icon(Icons.account_circle_outlined),
+                        label: 'Profile'),
+                  ],
+                  currentIndex: _currentIndex,
+                  selectedItemColor: Color(0xff0888fd),
+                  unselectedItemColor: Colors.white,
+                  onTap: _onTabTapped,
+                ),
+              ),
             ),
-          ],
-        ),
-        child: ClipRRect(
-          borderRadius: BorderRadius.only(
-            topLeft: Radius.circular(30.0),
-            topRight: Radius.circular(30.0),
           ),
-          child: BottomNavigationBar(
-            backgroundColor:
-                Colors.transparent, // Ensure transparent background
-            items: const [
-              BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
-              BottomNavigationBarItem(
-                  icon: Icon(Icons.stars), label: 'Contest'),
-              BottomNavigationBarItem(
-                  icon: Icon(Icons.bar_chart), label: 'Statistics'),
-              BottomNavigationBarItem(
-                  icon: Icon(Icons.person), label: 'Profile'),
-            ],
-            currentIndex: _currentIndex,
-            selectedItemColor: Colors.blue,
-            unselectedItemColor: Colors.grey,
-            onTap: _onTabTapped,
-          ),
-        ),
+        ],
       ),
     );
   }
