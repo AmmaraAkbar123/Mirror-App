@@ -149,7 +149,7 @@ class HomeScreen extends StatelessWidget {
                           name: 'William John'),
                     ],
                   ),
-                  const SizedBox(height: 20),
+                      const SizedBox(height: 80),
                 ],
               ),
             ),
