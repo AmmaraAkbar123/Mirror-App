@@ -81,6 +81,7 @@ class _CustomFabState extends State<CustomFab>
               ),
             ),
           ),
+          
         Positioned(
           child: FloatingActionButton(
             onPressed: _toggle,
@@ -99,6 +100,7 @@ class _CustomFabState extends State<CustomFab>
           bottom: 20,
           right: 20,
         ),
+      
       ],
     );
   }

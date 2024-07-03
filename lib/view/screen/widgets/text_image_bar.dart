@@ -33,8 +33,8 @@ class TextandImageBar extends StatelessWidget {
                 image: AssetImage(backgroundImage),
                 fit: BoxFit.cover,
                 colorFilter: ColorFilter.mode(
-                  Colors.black.withOpacity(0.3), // Adjust the transparency
-                  BlendMode.darken, // Apply a color hue
+                  Colors.black.withOpacity(0.3),
+                  BlendMode.darken,
                 ),
               ),
               borderRadius: const BorderRadius.only(
