@@ -34,8 +34,6 @@ class NotificationScreen extends StatelessWidget {
         children: [
           Image.asset('assets/images/image.jpeg', fit: BoxFit.cover),
           Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            mainAxisSize: MainAxisSize.min,
             children: [
               Padding(
                 padding: const EdgeInsets.only(left: 15, right: 15, top: 45),
@@ -45,168 +43,174 @@ class NotificationScreen extends StatelessWidget {
                   rightIcon: Icons.notifications,
                 ),
               ),
-              SizedBox(height: 20),
-              Container(
-                padding: const EdgeInsets.all(10),
-                decoration: BoxDecoration(
-                  color: const Color.fromARGB(0, 0, 0, 0).withOpacity(0.37),
-                  borderRadius: const BorderRadius.all(
-                    Radius.circular(15),
+              SizedBox(height: 10),
+              Expanded(
+                child: SingleChildScrollView(
+                  child: Container(
+                    padding: const EdgeInsets.all(10),
+                    decoration: BoxDecoration(
+                      color: const Color.fromARGB(0, 0, 0, 0).withOpacity(0.37),
+                      borderRadius: const BorderRadius.all(
+                        Radius.circular(15),
+                      ),
+                    ),
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(left: 10, top: 10),
+                          child: Text(
+                            "New",
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 16,
+                                fontWeight: FontWeight.w700),
+                          ),
+                        ),
+                        ListView.builder(
+                          padding: const EdgeInsets.all(10),
+                          shrinkWrap: true,
+                          physics: NeverScrollableScrollPhysics(),
+                          itemCount: notifications.length,
+                          itemBuilder: (context, index) {
+                            final notification = notifications[index];
+                            return Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Row(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    CircleAvatar(
+                                      radius: 15,
+                                      backgroundImage:
+                                          AssetImage(notification.userImage),
+                                    ),
+                                    SizedBox(width: 10),
+                                    Expanded(
+                                      child: Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          RichText(
+                                            text: TextSpan(
+                                              style: TextStyle(
+                                                  color: Colors.white,
+                                                  fontSize: 14),
+                                              children: [
+                                                TextSpan(
+                                                  text:
+                                                      '${notification.username} ',
+                                                  style: TextStyle(
+                                                      fontWeight:
+                                                          FontWeight.bold),
+                                                ),
+                                                TextSpan(
+                                                  text: notification.comment,
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                          SizedBox(height: 5),
+                                          Text(
+                                            notification.timeAgo,
+                                            style: TextStyle(
+                                                color: Colors.grey,
+                                                fontSize: 12),
+                                          ),
+                                          SizedBox(height: 10),
+                                        ],
+                                      ),
+                                    ),
+                                    Icon(
+                                      Icons.more_horiz,
+                                      color: Colors.white,
+                                    ),
+                                  ],
+                                ),
+                                SizedBox(height: 10), // Add space between items
+                              ],
+                            );
+                          },
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(left: 10),
+                          child: Text(
+                            "Earlier",
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 16,
+                                fontWeight: FontWeight.w700),
+                          ),
+                        ),
+                        ListView.builder(
+                          padding: const EdgeInsets.all(10),
+                          shrinkWrap: true,
+                          physics: NeverScrollableScrollPhysics(),
+                          itemCount: notifications.length,
+                          itemBuilder: (context, index) {
+                            final notification = notifications[index];
+                            return Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Row(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    CircleAvatar(
+                                      radius: 15,
+                                      backgroundImage:
+                                          AssetImage(notification.userImage),
+                                    ),
+                                    SizedBox(width: 10),
+                                    Expanded(
+                                      child: Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          RichText(
+                                            text: TextSpan(
+                                              style: TextStyle(
+                                                  color: Colors.white,
+                                                  fontSize: 14),
+                                              children: [
+                                                TextSpan(
+                                                  text:
+                                                      '${notification.username} ',
+                                                  style: TextStyle(
+                                                      fontWeight:
+                                                          FontWeight.bold),
+                                                ),
+                                                TextSpan(
+                                                  text: notification.comment,
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                          SizedBox(height: 5),
+                                          Text(
+                                            notification.timeAgo,
+                                            style: TextStyle(
+                                                color: Colors.grey,
+                                                fontSize: 12),
+                                          ),
+                                          SizedBox(height: 10),
+                                        ],
+                                      ),
+                                    ),
+                                    Icon(
+                                      Icons.more_horiz,
+                                      color: Colors.white,
+                                    ),
+                                  ],
+                                ),
+                                SizedBox(height: 10), // Add space between items
+                              ],
+                            );
+                          },
+                        ),
+                      ],
+                    ),
                   ),
-                ),
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.only(left: 10, top: 10),
-                      child: Text(
-                        "New",
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 16,
-                            fontWeight: FontWeight.w700),
-                      ),
-                    ),
-                    //  SizedBox(height: 10),
-                    ListView.builder(
-                      padding: const EdgeInsets.all(10),
-                      shrinkWrap: true,
-                      itemCount: notifications.length,
-                      itemBuilder: (context, index) {
-                        final notification = notifications[index];
-                        return Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Row(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                CircleAvatar(
-                                  radius: 15,
-                                  backgroundImage:
-                                      AssetImage(notification.userImage),
-                                ),
-                                SizedBox(width: 10),
-                                Expanded(
-                                  child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      RichText(
-                                        text: TextSpan(
-                                          style: TextStyle(
-                                              color: Colors.white,
-                                              fontSize: 14),
-                                          children: [
-                                            TextSpan(
-                                              text: '${notification.username} ',
-                                              style: TextStyle(
-                                                  fontWeight: FontWeight.bold),
-                                            ),
-                                            TextSpan(
-                                              text: notification.comment,
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                      SizedBox(height: 5),
-                                      Text(
-                                        notification.timeAgo,
-                                        style: TextStyle(
-                                            color: Colors.grey, fontSize: 12),
-                                      ),
-                                      SizedBox(height: 10),
-                                    ],
-                                  ),
-                                ),
-                                Icon(
-                                  Icons.more_horiz,
-                                  color: Colors.white,
-                                ),
-                              ],
-                            ),
-                            SizedBox(height: 10), // Add space between items
-                          ],
-                        );
-                      },
-                    ),
-
-                    /////earlier part
-                    Padding(
-                      padding: const EdgeInsets.only(
-                        left: 10,
-                      ),
-                      child: Text(
-                        "Earlier",
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 16,
-                            fontWeight: FontWeight.w700),
-                      ),
-                    ),
-                    // SizedBox(height: 10),
-                    ListView.builder(
-                      padding: const EdgeInsets.all(10),
-                      shrinkWrap: true,
-                      itemCount: notifications.length,
-                      itemBuilder: (context, index) {
-                        final notification = notifications[index];
-                        return Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Row(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                CircleAvatar(
-                                  radius: 15,
-                                  backgroundImage:
-                                      AssetImage(notification.userImage),
-                                ),
-                                SizedBox(width: 10),
-                                Expanded(
-                                  child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      RichText(
-                                        text: TextSpan(
-                                          style: TextStyle(
-                                              color: Colors.white,
-                                              fontSize: 14),
-                                          children: [
-                                            TextSpan(
-                                              text: '${notification.username} ',
-                                              style: TextStyle(
-                                                  fontWeight: FontWeight.bold),
-                                            ),
-                                            TextSpan(
-                                              text: notification.comment,
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                      SizedBox(height: 5),
-                                      Text(
-                                        notification.timeAgo,
-                                        style: TextStyle(
-                                            color: Colors.grey, fontSize: 12),
-                                      ),
-                                      SizedBox(height: 10),
-                                    ],
-                                  ),
-                                ),
-                                Icon(
-                                  Icons.more_horiz,
-                                  color: Colors.white,
-                                ),
-                              ],
-                            ),
-                            SizedBox(height: 10), // Add space between items
-                          ],
-                        );
-                      },
-                    ),
-                  ],
                 ),
               ),
             ],

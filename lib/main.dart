@@ -48,6 +48,7 @@ class MyApp extends StatelessWidget {
         '/upcomingevent': (context) => const UpcomingEventsScreen(),
         '/cloudchat': (context) => CloudChatScreen(),
         '/notification': (context) => NotificationScreen(),
+        '/profile': (context) => const ProfileScreen(),
       },
       debugShowCheckedModeBanner: false,
     );

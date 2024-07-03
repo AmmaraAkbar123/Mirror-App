@@ -4,12 +4,14 @@ class CustomTitleAppbar extends StatelessWidget {
   final String title;
   final IconData? leftIcon;
   final IconData? rightIcon;
+  final bool isMessage;
 
   const CustomTitleAppbar({
     super.key,
     required this.title,
     this.leftIcon,
     this.rightIcon,
+    this.isMessage = false,
   });
 
   @override
@@ -49,21 +51,23 @@ class CustomTitleAppbar extends StatelessWidget {
             ),
           ),
         ),
-        rightIcon != null
-            ? IconButton(
-                padding: EdgeInsets.zero,
-                icon: Icon(
-                  rightIcon,
-                  color: Colors.white,
-                  size: 20,
-                ),
-                onPressed: () {
-                  // Define what happens when the right icon is pressed
-                },
-              )
-            : Container(
-                width: 25, // Placeholder to balance the Row
-              ),
+        isMessage
+            ? TextButton(onPressed: () {}, child: Text("data"))
+            : rightIcon != null
+                ? IconButton(
+                    padding: EdgeInsets.zero,
+                    icon: Icon(
+                      rightIcon,
+                      color: Colors.white,
+                      size: 24,
+                    ),
+                    onPressed: () {
+                      // Define what happens when the right icon is pressed
+                    },
+                  )
+                : SizedBox(
+                    width: 25, // Placeholder to balance the Row
+                  ),
       ],
     );
   }

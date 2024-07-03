@@ -112,7 +112,8 @@ class MainProfileScreen extends StatelessWidget {
                               width: 5,
                             ),
                             GestureDetector(
-                              onTap: () => Navigator.of(context).pushNamed('/cloudchat'),
+                              onTap: () =>
+                                  Navigator.of(context).pushNamed('/cloudchat'),
                               child: ShakeKingContainer(
                                 height: 25,
                                 width: 50,
@@ -131,7 +132,6 @@ class MainProfileScreen extends StatelessWidget {
                               txt1: "Tickle",
                               icon: Icons.air,
                             ),
-                            
                           ],
                         ),
                       )
@@ -169,11 +169,11 @@ class MainProfileScreen extends StatelessWidget {
                       SizedBox(
                         width: 5,
                       ),
-                      KingTextsContainer(txt1: "K", txt2: "500"),
+                      KingTextsContainer(txt1: "T", txt2: "500"),
                       SizedBox(
                         width: 5,
                       ),
-                      KingTextsContainer(txt1: "K", txt2: "500")
+                      KingTextsContainer(txt1: "A", txt2: "500")
                     ],
                   ),
                 ),
@@ -184,8 +184,12 @@ class MainProfileScreen extends StatelessWidget {
                     children: [
                       Row(
                         children: [
-                          GreyIconConytainer(
-                            icon: Icons.person,
+                          GestureDetector(
+                            onTap: () =>
+                                Navigator.of(context).pushNamed('/profile'),
+                            child: GreyIconConytainer(
+                              icon: Icons.person,
+                            ),
                           ),
                           SizedBox(
                             width: 8,
@@ -365,7 +369,6 @@ class MainProfileScreen extends StatelessWidget {
           CustomFab(),
         ],
       ),
-    
     );
   }
 }
