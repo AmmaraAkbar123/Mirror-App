@@ -96,7 +96,7 @@ class NotificationScreen extends StatelessWidget {
                                             text: TextSpan(
                                               style: TextStyle(
                                                   color: Colors.white,
-                                                  fontSize: 14),
+                                                  fontSize: 10),
                                               children: [
                                                 TextSpan(
                                                   text:
@@ -171,7 +171,7 @@ class NotificationScreen extends StatelessWidget {
                                             text: TextSpan(
                                               style: TextStyle(
                                                   color: Colors.white,
-                                                  fontSize: 14),
+                                                  fontSize: 10),
                                               children: [
                                                 TextSpan(
                                                   text:
