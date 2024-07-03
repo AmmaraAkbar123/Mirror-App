@@ -67,7 +67,33 @@ class CustomTitleAppbar extends StatelessWidget {
           ),
         ),
         isMessage
-            ? TextButton(onPressed: () {}, child: Text("data"))
+            ? Container(
+              decoration: BoxDecoration(
+                color: Color(0xFFC6E4FF),
+                      borderRadius: BorderRadius.circular(5),
+
+              ),
+                child: Padding(
+                  padding: const EdgeInsets.all(5.0),
+                  child: Row(
+                  children: [
+                    Container(
+                      width: 14,
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(2),
+                        child: Image(
+                          fit: BoxFit.cover,
+                          image: AssetImage('assets/images/flag.png'),
+                        ),
+                      ),
+                    ),
+                                SizedBox(width: 2,),
+                    Text("Pakistan", style: TextStyle(fontSize: 8),),
+                    Icon(Icons.arrow_drop_down,
+                                color: Colors.black, size: 10,),
+                  ],
+                                ),
+                ))
             : rightIcon != null
                 ? IconButton(
                     padding: EdgeInsets.zero,
