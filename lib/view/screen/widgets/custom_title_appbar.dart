@@ -5,14 +5,16 @@ class CustomTitleAppbar extends StatelessWidget {
   final IconData? leftIcon;
   final IconData? rightIcon;
   final bool isMessage;
+  final IconData? midIcon;
 
   const CustomTitleAppbar({
-    super.key,
+    Key? key,
     required this.title,
     this.leftIcon,
     this.rightIcon,
     this.isMessage = false,
-  });
+    this.midIcon,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -40,14 +42,27 @@ class CustomTitleAppbar extends StatelessWidget {
         ),
         Expanded(
           child: Center(
-            child: Text(
-              title,
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 17,
-                fontWeight: FontWeight.w700,
-              ),
-              textAlign: TextAlign.center,
+            child: Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Text(
+                  title,
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 17,
+                    fontWeight: FontWeight.w700,
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+                if (midIcon != null) ...[
+                  SizedBox(width: 7),
+                  Icon(
+                    midIcon,
+                    color: Colors.white,
+                    size: 20,
+                  ),
+                ],
+              ],
             ),
           ),
         ),

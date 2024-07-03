@@ -76,12 +76,16 @@ class MainProfileScreen extends StatelessWidget {
                     children: [
                       Row(
                         children: [
-                          Text(
-                            "Profile",
-                            style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 16,
-                                fontWeight: FontWeight.w700),
+                          GestureDetector(
+                            onTap: () =>
+                                Navigator.of(context).pushNamed('/profile'),
+                            child: Text(
+                              "Profile",
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w700),
+                            ),
                           ),
                           SizedBox(
                             width: 5,
@@ -151,10 +155,14 @@ class MainProfileScreen extends StatelessWidget {
                     children: [
                       Column(
                         children: [
-                          CircleAvatar(
-                            backgroundImage:
-                                AssetImage("assets/images/user4.png"),
-                            radius: 18,
+                          GestureDetector(
+                            onTap: () =>
+                                Navigator.of(context).pushNamed('/profile'),
+                            child: CircleAvatar(
+                              backgroundImage:
+                                  AssetImage("assets/images/user4.png"),
+                              radius: 18,
+                            ),
                           ),
                           Text(
                             "@gmail",
