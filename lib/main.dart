@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:mirror/authentication/screen/forget_pasword_screen.dart';
 import 'package:mirror/view/screen/add_post.dart';
 import 'package:mirror/view/screen/add_friends_screen.dart';
+import 'package:mirror/view/screen/chat_screen.dart';
 import 'package:mirror/view/screen/cloud_chat_screen.dart';
 import 'package:mirror/view/screen/contest_screen.dart';
 import 'package:mirror/view/screen/event_des_screen.dart';
@@ -51,7 +52,8 @@ class MyApp extends StatelessWidget {
         '/cloudchat': (context) => CloudChatScreen(),
         '/notification': (context) => NotificationScreen(),
         '/addpost': (context) => const AddPostScreen(),
-        '/addfriendsscreen': (context) => AddFriendsScreen(),
+        '/addfriends': (context) => AddFriendsScreen(),
+        '/chat': (context) => ChatScreen(),
       },
       debugShowCheckedModeBanner: false,
     );

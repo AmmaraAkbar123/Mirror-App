@@ -19,61 +19,77 @@ class AddPostScreen extends StatelessWidget {
             Column(
               children: [
                 Padding(
-                  padding: const EdgeInsets.only(top: 45, left: 12, right: 12),
+                  padding: const EdgeInsets.only(
+                      top: 45, left: 12, right: 12, bottom: 12),
                   child: CustomTitleAppbar(
                       title: "Add Post", leftIcon: Icons.arrow_back_ios_new),
                 ),
                 Expanded(
                   child: Container(
-                     padding: const EdgeInsets.all(10),
-                decoration: BoxDecoration(
-                  color: const Color.fromARGB(0, 0, 0, 0).withOpacity(0.37),
-                  borderRadius: const BorderRadius.all(
-                    Radius.circular(15),
-                  ),
-                ),
+                    decoration: BoxDecoration(
+                      color: const Color.fromARGB(0, 0, 0, 0).withOpacity(0.37),
+                      borderRadius: const BorderRadius.all(
+                        Radius.circular(15),
+                      ),
+                    ),
                     child: Column(
                       children: [
                         Padding(
-                          padding:
-                              const EdgeInsets.only(top: 20, left: 12, right: 12),
+                          padding: const EdgeInsets.only(
+                              top: 20, left: 12, right: 12, bottom: 6),
                           child: Row(
                             children: [
                               CircleAvatar(
-                                radius: 12,
+                                radius: 14,
                                 backgroundImage:
                                     AssetImage('assets/users/p3.png'),
                               ),
-                              SizedBox(width: 20,),
+                              SizedBox(
+                                width: 20,
+                              ),
                               Expanded(
-                                child: TextField(
-                                  decoration: InputDecoration(
-                                    hintText: 'Write something here...',
-                                    hintStyle: TextStyle(color: Colors.black.withOpacity(0.53)),
-                                    filled: true,
-                                    fillColor: Colors.white,
-                                    border: OutlineInputBorder(
-                                      borderRadius: BorderRadius.circular(25),
-                                      borderSide: BorderSide.none,
+                                child: Container(
+                                  height: 35.0,
+                                  child: TextField(
+                                    decoration: InputDecoration(
+                                      hintText: 'Write something here...',
+                                      hintStyle: TextStyle(
+                                        color: Colors.black.withOpacity(0.53),
+                                        fontSize: 10,
+                                      ),
+                                      filled: true,
+                                      fillColor: Colors.white,
+                                      border: OutlineInputBorder(
+                                        borderRadius: BorderRadius.circular(25),
+                                        borderSide: BorderSide.none,
+                                      ),
+                                      contentPadding: EdgeInsets.symmetric(
+                                        horizontal: 12),
                                     ),
+                                    style: TextStyle(
+                                        color: const Color.fromARGB(
+                                            255, 110, 94, 94)),
                                   ),
-                                  style: TextStyle(color: Colors.white),
                                 ),
+                              
                               ),
                               IconButton(
                                 icon: Icon(Icons.send, color: Colors.white),
-                                onPressed: () {
-                                  // Send post
-                                },
+                                onPressed: () {},
                               ),
                             ],
                           ),
                         ),
+                        Divider(color: Colors.white),
                         Padding(
-                          padding: const EdgeInsets.symmetric(
-                              vertical: 10.0, horizontal: 12.0),
+                          padding: const EdgeInsets.symmetric(horizontal: 12.0),
                           child: TabBar(
-                            indicatorColor: Colors.white,
+                            indicator: UnderlineTabIndicator(
+                              borderSide:
+                                  BorderSide(width: 5.0, color: Colors.white),
+                              insets: EdgeInsets.symmetric(horizontal: 16.0),
+                            ),
+                            indicatorSize: TabBarIndicatorSize.tab,
                             labelColor: Colors.white,
                             unselectedLabelColor: Colors.white70,
                             tabs: [
@@ -90,7 +106,10 @@ class AddPostScreen extends StatelessWidget {
                                 child: Column(
                                   children: [
                                     SizedBox(
-                                      height: 130,
+                                      height: 6,
+                                    ),
+                                    SizedBox(
+                                      height: 120,
                                       child: ListView(
                                         scrollDirection: Axis.horizontal,
                                         children: [
@@ -110,13 +129,17 @@ class AddPostScreen extends StatelessWidget {
                                         ],
                                       ),
                                     ),
-                                    Divider(color: Colors.white),
+                                    Divider(
+                                      color: Color(0xFFE4E6E6),
+                                      thickness: 5,
+                                    ),
                                     PostCard(
                                       username: 'raj_2255',
                                       description:
                                           'one of the most popular thinking about so raining',
                                       imagePath: 'assets/images/addpost.png',
                                     ),
+                                    Divider(color: Colors.white),
                                   ],
                                 ),
                               ),
@@ -143,5 +166,3 @@ class AddPostScreen extends StatelessWidget {
     );
   }
 }
-
-

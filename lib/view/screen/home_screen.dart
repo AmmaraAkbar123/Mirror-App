@@ -75,17 +75,23 @@ class HomeScreen extends StatelessWidget {
                   const SizedBox(height: 10),
                   Center(
                     child: _buildHorizontalScrollSection([
-                      const EventCard(
-                        imagePath: 'assets/images/eid2.jpeg',
-                        eventName: 'Eid-ul-Adha',
-                        participants: '122',
-                        cardWidth: 100,
+                      GestureDetector(
+                      onTap: () => Navigator.of(context).pushNamed('/addfriends'),
+                        child: const EventCard(
+                          imagePath: 'assets/images/eid2.jpeg',
+                          eventName: 'Eid-ul-Adha',
+                          participants: '122',
+                          cardWidth: 100,
+                        ),
                       ),
-                      const EventCard(
-                        imagePath: 'assets/images/easter.jpeg',
-                        eventName: 'Easter',
-                        participants: '122',
-                        cardWidth: 100,
+                      GestureDetector(
+                      onTap: () => Navigator.of(context).pushNamed('/chat'),
+                        child: const EventCard(
+                          imagePath: 'assets/images/easter.jpeg',
+                          eventName: 'Easter',
+                          participants: '122',
+                          cardWidth: 100,
+                        ),
                       ),
                       const EventCard(
                         imagePath: 'assets/images/christmas.jpeg',
