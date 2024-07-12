@@ -30,10 +30,37 @@ class HomeScreen extends StatelessWidget {
               child: Column(
                 children: [
                   SizedBox(
-                    height: 5,
+                    height: 10,
                   ),
+                  GestureDetector(
+                    onTap: () => Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => UpcomingEventsScreen()),
+                    ),
+                    child: GestureDetector(
+                      onTap: () =>
+                          Navigator.of(context).pushNamed('/upcomingevent'),
+                      child: SectionHeader(
+                        title: "Currently Running Event Contests",
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 10),
+                  GestureDetector(
+                    onTap: () =>
+                        Navigator.of(context).pushNamed('/upcomingevent'),
+                    child: UpcomingContestCard(
+                      eventName: 'Diwali Celebration Event',
+                      day: 'JAN',
+                      date: '31',
+                      location: 'New York, US',
+                      imagePath: 'assets/images/upcoming.jpeg',
+                    ),
+                  ),
+                  const SizedBox(height: 40),
                   SectionHeader(
-                    title: "Featured Contests",
+                    title: "Upcoming Event Contests",
                     exploreText: "Explore",
                   ),
                   const SizedBox(height: 10),
@@ -67,68 +94,71 @@ class HomeScreen extends StatelessWidget {
                       ),
                     ),
                   ]),
-                  const SizedBox(height: 20),
+                  const SizedBox(height: 16),
                   SectionHeader(
-                    title: "Popular Contests",
+                    title: "Featured Contests",
                     exploreText: "Explore",
                   ),
                   const SizedBox(height: 10),
-                  Center(
-                    child: _buildHorizontalScrollSection([
-                      GestureDetector(
-                      onTap: () => Navigator.of(context).pushNamed('/addfriends'),
-                        child: const EventCard(
-                          imagePath: 'assets/images/eid2.jpeg',
-                          eventName: 'Eid-ul-Adha',
-                          participants: '122',
-                          cardWidth: 100,
-                        ),
-                      ),
-                      GestureDetector(
-                      onTap: () => Navigator.of(context).pushNamed('/chat'),
-                        child: const EventCard(
-                          imagePath: 'assets/images/easter.jpeg',
-                          eventName: 'Easter',
-                          participants: '122',
-                          cardWidth: 100,
-                        ),
-                      ),
-                      const EventCard(
-                        imagePath: 'assets/images/christmas.jpeg',
-                        eventName: 'Christmas',
+                  _buildHorizontalScrollSection([
+                    GestureDetector(
+                    onTap: () => Navigator.of(context).pushNamed('/addfriends'),
+                      child: const EventCard(
+                        imagePath: 'assets/images/eid2.jpeg',
+                        eventName: 'Eid-ul-Adha',
                         participants: '122',
                         cardWidth: 100,
                       ),
-                    ]),
-                  ),
-                  const SizedBox(height: 20),
-                  GestureDetector(
-                    onTap: () => Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => UpcomingEventsScreen()),
                     ),
-                    child: GestureDetector(
-                      onTap: () =>
-                          Navigator.of(context).pushNamed('/upcomingevent'),
-                      child: SectionHeader(
-                        title: "Upcoming Contests",
+                    GestureDetector(
+                    onTap: () => Navigator.of(context).pushNamed('/chat'),
+                      child: const EventCard(
+                        imagePath: 'assets/images/easter.jpeg',
+                        eventName: 'Easter',
+                        participants: '122',
+                        cardWidth: 100,
                       ),
                     ),
+                    const EventCard(
+                      imagePath: 'assets/images/christmas.jpeg',
+                      eventName: 'Christmas',
+                      participants: '122',
+                      cardWidth: 100,
+                    ),
+                  ]),
+                  const SizedBox(height: 16),
+                  SectionHeader(
+                    title: "Contests",
+                    exploreText: "Explore",
                   ),
                   const SizedBox(height: 10),
-                  GestureDetector(
-                    onTap: () =>
-                        Navigator.of(context).pushNamed('/upcomingevent'),
-                    child: UpcomingContestCard(
-                      eventName: 'Diwali Celebration Event',
-                      day: 'JAN',
-                      date: '31',
-                      location: 'New York, US',
-                      imagePath: 'assets/images/upcoming.jpeg',
+                  _buildHorizontalScrollSection([
+                    GestureDetector(
+                    onTap: () => Navigator.of(context).pushNamed('/addfriends'),
+                      child: const EventCard(
+                        imagePath: 'assets/images/eid2.jpeg',
+                        eventName: 'Eid-ul-Adha',
+                        participants: '122',
+                        cardWidth: 100,
+                      ),
                     ),
-                  ),
-                  const SizedBox(height: 40),
+                    GestureDetector(
+                    onTap: () => Navigator.of(context).pushNamed('/chat'),
+                      child: const EventCard(
+                        imagePath: 'assets/images/easter.jpeg',
+                        eventName: 'Easter',
+                        participants: '122',
+                        cardWidth: 100,
+                      ),
+                    ),
+                    const EventCard(
+                      imagePath: 'assets/images/christmas.jpeg',
+                      eventName: 'Christmas',
+                      participants: '122',
+                      cardWidth: 100,
+                    ),
+                  ]),
+                  const SizedBox(height: 16),
                   const Row(
                     children: [SectionHeader(title: "My Feed")],
                   ),

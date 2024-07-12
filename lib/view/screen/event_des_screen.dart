@@ -61,9 +61,9 @@ class _EventDesScreenState extends State<EventDesScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Padding(
-                  padding: const EdgeInsets.only(top: 40, left: 12, right: 12),
-                  child: const CustomTitleAppbar(
+                const Padding(
+                  padding: EdgeInsets.only(top: 40, left: 12, right: 12),
+                  child: CustomTitleAppbar(
                       title: "Event Des", leftIcon: Icons.arrow_back_ios_new),
                 ),
                 const SizedBox(height: 20),
@@ -79,37 +79,64 @@ class _EventDesScreenState extends State<EventDesScreen> {
                         fit: BoxFit.cover,
                       ),
                     ),
-                    child: Align(
-                      alignment: Alignment.bottomCenter,
-                      child: Padding(
-                        padding: const EdgeInsets.only(bottom: 16.0),
-                        child: Container(
-                          width: 110,
-                          height: 45,
-                          padding: const EdgeInsets.all(10),
-                          decoration: BoxDecoration(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        const SizedBox(height: 8),
+                        // Countdown timer
+                        const Text(
+                          "Countdown: 1d 3h 45m",
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 12,
+                            fontWeight: FontWeight.bold,
+                          ),
+                          textAlign: TextAlign.center,
+                        ),
+                        const SizedBox(height: 8),
+                        // Winner announcement date and time
+                        const Text(
+                          "Winner Announcement Date: 03:00 PM, 02 Jan 2024",
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 8,
+                          ),
+                          textAlign: TextAlign.center,
+                        ),
+                        const Spacer(),
+                        // SignUp button
+                        Padding(
+                          padding: const EdgeInsets.only(bottom: 16.0),
+                          child: Container(
+                            width: 110,
+                            height: 45,
+                            padding: const EdgeInsets.all(10),
+                            decoration: BoxDecoration(
                               color: Colors.white,
-                              borderRadius: BorderRadius.circular(15)),
-                          child: const Center(
-                            child: Text(
-                              "SignUp",
-                              style: TextStyle(
-                                color: Colors.black,
-                                fontSize: 15,
-                                fontWeight: FontWeight.bold,
+                              borderRadius: BorderRadius.circular(15),
+                            ),
+                            child: const Center(
+                              child: Text(
+                                "SignUp",
+                                style: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 15,
+                                  fontWeight: FontWeight.bold,
+                                ),
                               ),
                             ),
                           ),
                         ),
-                      ),
+                      ],
                     ),
                   ),
                 ),
+
                 const SizedBox(height: 15),
-                ////
-                Padding(
-                  padding: const EdgeInsets.only(left: 12, right: 12),
-                  child: const Row(
+
+                const Padding(
+                  padding: EdgeInsets.only(left: 12, right: 12),
+                  child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
@@ -138,9 +165,9 @@ class _EventDesScreenState extends State<EventDesScreen> {
                   child: const Divider(color: Colors.white),
                 ),
                 // const SizedBox(height: 5),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 12),
-                  child: const Text(
+                const Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 12),
+                  child: Text(
                     "Content",
                     style: TextStyle(
                       color: Colors.white,
@@ -149,14 +176,14 @@ class _EventDesScreenState extends State<EventDesScreen> {
                   ),
                 ),
                 const SizedBox(height: 5),
-                Padding(
-                  padding: const EdgeInsets.only(left: 30, right: 30),
-                  child: const ContentBox(),
+                const Padding(
+                  padding: EdgeInsets.only(left: 30, right: 30),
+                  child: ContentBox(),
                 ),
                 const SizedBox(height: 16),
 
                 Container(
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                     border: Border(
                       top: BorderSide(color: Colors.white, width: 1),
                       bottom: BorderSide(color: Colors.white, width: 1),
@@ -229,7 +256,6 @@ class _EventDesScreenState extends State<EventDesScreen> {
                                           ),
                                         ),
                                       ),
-
                                       GestureDetector(
                                         onTap: () {
                                           setState(() {
@@ -263,10 +289,9 @@ class _EventDesScreenState extends State<EventDesScreen> {
                   ),
                 ),
 
-                Padding(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 12, vertical: 5),
-                  child: const Text(
+                const Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 12, vertical: 5),
+                  child: Text(
                     "Shadows",
                     style: TextStyle(
                       color: Colors.white,
