@@ -111,7 +111,7 @@ class HomeScreen extends StatelessWidget {
                       ),
                     ),
                     GestureDetector(
-                    onTap: () => Navigator.of(context).pushNamed('/chat'),
+                    onTap: () => Navigator.of(context).pushNamed('/cloudchat'),
                       child: const EventCard(
                         imagePath: 'assets/images/easter.jpeg',
                         eventName: 'Easter',
@@ -134,7 +134,7 @@ class HomeScreen extends StatelessWidget {
                   const SizedBox(height: 10),
                   _buildHorizontalScrollSection([
                     GestureDetector(
-                    onTap: () => Navigator.of(context).pushNamed('/addfriends'),
+                    // onTap: () => Navigator.of(context).pushNamed('/'),
                       child: const EventCard(
                         imagePath: 'assets/images/eid2.jpeg',
                         eventName: 'Eid-ul-Adha',
@@ -143,7 +143,7 @@ class HomeScreen extends StatelessWidget {
                       ),
                     ),
                     GestureDetector(
-                    onTap: () => Navigator.of(context).pushNamed('/chat'),
+                    // onTap: () => Navigator.of(context).pushNamed('/'),
                       child: const EventCard(
                         imagePath: 'assets/images/easter.jpeg',
                         eventName: 'Easter',

@@ -117,12 +117,12 @@ class MainProfileScreen extends StatelessWidget {
                             ),
                             GestureDetector(
                               onTap: () =>
-                                  Navigator.of(context).pushNamed('/cloudchat'),
+                                  Navigator.of(context).pushNamed('/chat'),
                               child: ShakeKingContainer(
                                 height: 25,
-                                width: 50,
+                                width: 56,
                                 singleTxtSize: 8,
-                                txt1: "Messa",
+                                txt1: "Message",
                                 icon: Icons.message,
                               ),
                             ),
@@ -173,15 +173,27 @@ class MainProfileScreen extends StatelessWidget {
                       SizedBox(
                         width: 25,
                       ),
-                      KingTextsContainer(txt1: "K", txt2: "500"),
+                      KingTextsContainer(
+                        icon: Icons.car_repair,
+                        isIconAvailable: true,
+                        txt2: "500",
+                      ),
                       SizedBox(
                         width: 5,
                       ),
-                      KingTextsContainer(txt1: "T", txt2: "500"),
+                      KingTextsContainer(
+                        icon: Icons.abc_sharp,
+                        isIconAvailable: true,
+                        txt2: "100",
+                      ),
                       SizedBox(
                         width: 5,
                       ),
-                      KingTextsContainer(txt1: "A", txt2: "500")
+                      KingTextsContainer(
+                        icon: Icons.car_crash,
+                        isIconAvailable: true,
+                        txt2: "400",
+                      ),
                     ],
                   ),
                 ),
@@ -369,7 +381,7 @@ class MainProfileScreen extends StatelessWidget {
                   ),
                 ),
                 SizedBox(
-                  height: 10,
+                  height: 100,
                 ),
               ],
             ),
